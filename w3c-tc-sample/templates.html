@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>W3C Test: API Test templates</title>
+    <link rel='author' title='Intel' href='http://www.intel.com'>
+    <link rel='help' href='http://www.w3.org/TR/'>
+    <meta name='flags' content='dom'>
+    <meta name='assert' content='Check if templates can help to create w3c web api level test cases'>
+    <style type='text/css'>
+      body { margin: 0px auto; padding: 20px; text-align: left ; font-family: 'Lucida Sans Unicode', Sans-Serif; } 
+      .eTable
+      {
+        font-size: 13px;
+        border-collapse: collapse;
+        border: 1px solid #69c;
+        width: 100%;
+      }
+      .eTable th
+      {
+        padding: 10px 17px 10px 17px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #039;
+        border-bottom: 1px dashed #69c;
+      }
+      .eTable td
+      {
+        padding: 7px 17px 7px 17px;
+        color: #333;
+      }
+      .eTable tr:hover td
+      {
+        color: #131313;
+        background: #F0Fafd;
+      }
+      .idl {
+      	font-family: 'Courier New';
+      	font-size: 12px;
+      	margin: 20px 0px;
+      	padding: 16px 16px;
+        border-bottom: 1px #90B8DE dashed;
+        border-top: 1px #90B8DE dashed;
+        background-color: #fafcff;
+      }
+      .idl:hover {
+        background-color: #F0Fafd;     	
+      }
+    </style>
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+  </head>
+  
+  <body>
+    <h3>W3C Test: API test templates</h3>
+    <h4>Interface</h4>
+<pre class="idl">
+partial interface Navigator {
+  readonly attribute BatteryManager battery;
+};
+interface FileList {
+  getter File? item(unsigned long index);
+  readonly attribute unsigned long length;
+};
+</pre>
+    <table border='0' cellpadding='0' cellspacing='0' class='eTable'>
+      <tr>
+        <th>Spec</th>
+        <th>Sample</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>partial interface Navigator {}</td>
+        <td>assert_true('navigator' in window)</td>
+        <td>window has a navigator property</td>
+      </tr>
+      <tr>
+        <td>interface FileList{}</td>
+        <td>assert_true('FileList' in window)</td>
+        <td>window has a FileList property</td>
+      </tr>
+    </table>  
+    <h4>Event Handler</h4>
+<pre class="idl">
+interface BatteryManager : EventTarget {
+  attribute EventHandler onchargingchange;
+};
+</pre>
+    <table border='0' cellpadding='0' cellspacing='0' class='eTable'>
+      <tr>
+        <th>Spec</th>
+        <th>Sample</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>interface BatteryManager : EventTarget {}</td>
+        <td>assert_own_property(window, 'BatteryManager')</td>
+        <td>window has an own property BatteryManager</td>
+      </tr>
+      <tr>
+        <td>interface BatteryManager : EventTarget {}</td>
+        <td>assert_true(navigator.battery instanceof EventTarget)</td>
+        <td>battery inherits from EventTarget</td>
+      </tr>
+      <tr>
+        <td>attribute EventHandler onchargingchange;</td>
+        <td>assert_inherits(navigator.battery, 'onchargingchange')</td>
+        <td>battery must have onchargingchange attribute</td>
+      </tr>
+      <tr>
+        <td>attribute EventHandler onchargingchange;</td>
+        <td>assert_true(navigator.battery.onchargingchange)</td>
+        <td>navigator.battery.onchargingchange by default</td>
+      </tr>
+      <tr>
+        <td>object.event initial value</td>
+        <td>assert_equals(element.ondragstart, null)</td>
+        <td>element.ondragstart initial value</td>
+      </tr>
+      <tr>
+        <td>event in window</td>
+        <td>assert_true('ondragstart' in window)</td>
+        <td></td>
+      </tr>  
+      <tr>
+        <td>event in document</td>
+        <td>assert_true('ondragstart' in document)</td>
+        <td></td>
+      </tr>  
+      <tr>
+        <td>event in HTMLElement</td>
+        <td>assert_true('ondragstart' in document.createElement('div'))</td>
+        <td></td>
+      </tr>      
+    </table>    
+    <h4>Method and Parameters</h4>
+<pre class="idl">
+interface FileList {
+  getter File? item(unsigned long index);
+};
+</pre>
+    <table border='0' cellpadding='0' cellspacing='0' class='eTable'>
+      <tr>
+        <th>Spec</th>
+        <th>Sample</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>getter File? item(unsigned long index)</td>
+        <td>assert_true(fileList.item instanceof Function)</td>
+        <td>item is a instanceof Function</td>
+      </tr>
+      <tr>
+        <td>getter File? item(unsigned long index)</td>
+        <td>assert_inherits(fileList, 'item')</td>
+        <td>item is a method of fileList</td>
+      </tr>
+      <tr>
+        <td>getter File? item(unsigned long index)</td>
+        <td>assert_equals(fileList.item(0), null, 'item method returns null')</td>
+        <td>item method returns null</td>
+      </tr>
+    </table>    
+    <h4>Attribute</h4>
+<pre class="idl">
+interface FileList {
+  readonly attribute unsigned long length;
+};
+</pre>   
+    <table border='0' cellpadding='0' cellspacing='0' class='eTable'>
+      <tr>
+        <th>Spec</th>
+        <th>Code</th>
+        <th>Sample</th>
+      </tr>
+      <tr>
+        <td>have attribute</td>
+        <td>assert_inherits(object, attribute_name)</td>
+        <td>assert_inherits(element, 'draggable')<br/>assert_inherits(fileList, 'length')</td>
+      </tr>
+      <tr>
+        <td>attribute exists</td>
+        <td>assert_true(attribute_name in object)</td>
+        <td>assert_true('dropzone' in element)</td>
+      </tr>
+      <tr>
+        <td>attribute by default</td>
+        <td>assert_true(object.attribute_name)</td>
+        <td>assert_true(element.draggable)</td>
+      </tr>
+      <tr>
+        <td>attribute with positive values</td>
+        <td>object.attribute_name = 'positive_value'<br/>assert_true(object.attribute_name)</td>
+        <td>element.draggable = 'true'<br/>assert_true(element.draggable)</td>
+      </tr>
+      <tr>
+        <td>attribute with specific values</td>
+        <td>object.attribute_name = 'specific_value'<br/>assert_equals(object.attribute_name, specific_value)</td>
+        <td>&lt;div dropzone='copy string:text/plain'&gt;<br/>assert_equals(event.dataTransfer.dropEffect, 'copy')</td>
+      </tr>
+      <tr>
+        <td>attribute with negative values</td>
+        <td>object.attribute_name = 'negative_value'<br/>assert_false(object.attribute_name)</td>
+        <td>element.draggable = 'false'<br/>assert_false(element.draggable)</td>
+      </tr>
+      <tr>
+        <td>attribute with out_of_range values</td>
+        <td>object.attribute_name = 'out_of_range_value'<br/>assert_false(object.attribute_name)</td>
+        <td>element.draggable = 'foo'<br/>assert_false(element.draggable)</td>
+      </tr>
+      <tr>
+        <td>readonly property</td>
+        <td>assert_readonly(object, attribute_name)</td>
+        <td>assert_readonly(navigator, 'battery')</td>
+      </tr>        
+      <tr>
+        <td>get attribute values</td>
+        <td>assert_equals(object.attribute_name, value)</td>
+        <td>assert_equals(fileList.length, 0)</td>
+      </tr>
+      <tr>
+      	<td>IDL attribute must reflect the content attribute,<br/>for setting via setAttribute</td>
+      	<td>object.setAttribute(name, value)<br/>assert_equals(object.attribute_name, "foo")</td>
+      	<td>element.setAttribute("id", "foo")<br/>assert_equals(element.id, "foo")</td>
+      </tr>
+      <tr>
+      	<td>IDL attribute must reflect the content attribute,<br/>for setting via IDL attribute</td>
+      	<td>object.attribute_name = value<br/>assert_equals(object.getAttribute(name), value)</td>
+      	<td>element.id = "foo"<br/>assert_equals(object.getAttribute("id"), "foo")</td>
+      </tr>
+    </table>  
+      
+    <h4>CSS (Not recommended)</h4>
+    <table border='0' cellpadding='0' cellspacing='0' class='eTable'>
+      <tr>
+        <th>Spec</th>
+        <th>Code</th>
+        <th>Sample</th>
+      </tr>
+      <tr>
+        <td>property initial value</td>
+        <td>assert_equals(getComputedStyle(object, null).getPropertyValue(property), initial value, 'property initial value')</td>
+        <td>assert_equals(getComputedStyle(document.getElementById('test'), null).getPropertyValue('background-clip'), 'border-box', 'background-clip initial value')</td>
+      </tr>
+      <tr>
+        <td>property value</td>
+        <td>object.style.property = value;<br/>assert_equals(getComputedStyle(object, null).getPropertyValue(property), value, 'property supporting value')</td>
+        <td>document.getElementById('test').style.backgroundClip = 'content-box';<br/>assert_equals(getComputedStyle(document.getElementById('test'), null).getPropertyValue('background-clip'), 'content-box', 'background-clip supporting value')</td>
+      </tr>
+    </table>  
+    <div id='test'></div>  
+    <div id='log'></div>
+      
+    <script>
+        var element = document.querySelector('#test');
+        
+        //Interface
+         test(function() {
+            assert_true('navigator' in window,  'window has a navigator property');
+        }, 'window has a navigator property');
+
+        test(function() {
+            assert_true('FileList' in window,  'window has a FileList property');
+        }, 'window has a FileList property');
+                
+        test(function() {
+            assert_inherits(navigator, 'battery', 'navigator must have battery attribute');
+        }, 'navigator must have battery attribute');       
+        
+ 		//Event
+ 		test(function() {
+            assert_inherits(element, 'ondragstart', 'Check if have ondragstart attribute');
+        }, 'Check if have ondragstart attribute');
+        
+        //Attribute
+        test(function() {
+            assert_inherits(element, 'draggable', 'div element should have draggable attribute');
+        }, 'a <div> element should have a draggable attribute');
+        
+        test(function() {
+            assert_false(element.draggable, 'div element should be draggable by default');
+        }, 'a <div> element should be draggable by default');
+
+        test(function() {
+            element.setAttribute('draggable', 'true');
+            assert_true(element.draggable, 'div element should be draggable with draggable="true"');
+        }, 'a <div> element should be draggable with draggable="true"');
+
+        test(function() {
+            element.setAttribute('draggable', 'false');
+            assert_false(element.draggable, 'div element should not be draggable with draggable="false"');
+        }, 'a <div> element should not be draggable with draggable="false"');
+
+        test(function() {
+            element.setAttribute('draggable', 'foo');
+            assert_false(element.draggable, 'div element should not be draggable with draggable="foo"');
+        }, 'a <div> element should not be draggable with draggable="foo"');
+    </script>
+      
+    <script>
+        //CSS
+        test(function() {
+            assert_equals(getComputedStyle(element, null).getPropertyValue('background-clip'), 'border-box', 'background-clip initial value')
+        }, 'background-clip_initial_border-box');
+
+        test(function() {
+            element.style.backgroundClip = 'content-box';
+            assert_equals(getComputedStyle(element, null).getPropertyValue('background-clip'), 'content-box', 'background-clip supporting value')
+        }, 'background-clip_content-box');
+    </script>
+ 
+  </body>
+</html>
+

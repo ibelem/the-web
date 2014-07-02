@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>HTML Test: document_onmousedown_event</title>
+    <link rel='author' title='Intel' href='http://www.intel.com'>
+    <link rel="help" href="http://www.w3.org/TR/2012/CR-html5-20121217/dom.html#documents">
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+  </head>
+  
+  <body>
+    <div>Press mouse key down on the document.</div>
+    <div id='log'> </div>
+
+    <script>
+	  document.onmousedown = function(event) {
+        test(function() {
+          assert_equals(event.type, 'mousedown',  'mousedown event is captured 0');
+        }, 'mousedown event is captured 0'); 
+	  }
+	  
+      document.addEventListener('mousedown', function(event) {
+        test(function() {
+          assert_equals(event.type, 'mousedown',  'mousedown event is captured 1');
+        }, 'mousedown event is captured 1');}
+	  , false);
+	
+      setup(function() {
+      }, {explicit_done: true, explicit_timeout: true});
+      
+      on_event(document, 'mousedown', function(event) {
+        test(function() {
+          assert_equals(event.type, 'mousedown',  'mousedown event is captured 2');
+        }, 'mousedown event is captured 2');
+        done();
+      });
+    </script>
+  </body>
+</html>

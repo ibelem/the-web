@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>HTML Test: dnd idlharness</title>
+    <link rel='author' title='Intel' href='http://www.intel.com/'>
+    <link rel='help' href='http://www.w3.org/html/wg/drafts/html/CR/editing.html#dnd'>
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+    <script src='/resources/webidl2/lib/webidl2.js'></script>
+    <script src='/resources/idlharness.js'></script>
+    <style>
+      #drop {
+        border: 2px solid black;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+      }
+      #select {
+        color: blue;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This test validates the WebIDL included in the HTML Drag and Drop specification.</p>
+    <div>Select and drag the blue text to rectangular box.</div>
+    <div id='select' draggable>blue text</div>
+    <div id='drop' dropzone='copy string:text/plain'></div>
+
+    <pre id='untested_idl' style='display:none'>
+	  /*
+      interface HTMLInputElement {
+      };
+      interface HTMLElement {
+      };
+      */
+      interface Element{
+      };
+    </pre>
+
+    <pre id='idl' style='display:none'>
+      interface DataTransfer {
+	    attribute DOMString dropEffect;
+        attribute DOMString effectAllowed;          
+	    readonly attribute DataTransferItemList items;	
+	    void setDragImage(Element image, long x, long y);	
+	    /* old interface */
+	    readonly attribute DOMString[] types;
+	    DOMString getData(DOMString format);
+	    void setData(DOMString format, DOMString data);
+	    void clearData(optional DOMString format);
+	    readonly attribute FileList files;
+	  };
+
+	  
+	  interface DataTransferItemList {
+	    readonly attribute unsigned long length;
+	    getter DataTransferItem (unsigned long index);
+	    void remove(unsigned long index);
+	    void clear();	
+	    DataTransferItem? add(DOMString data, DOMString type);
+	    DataTransferItem? add(File data);
+	  };	
+
+	  
+	  interface DataTransferItem {
+	    readonly attribute DOMString kind;
+	    readonly attribute DOMString type;
+	    void getAsString(FunctionStringCallback? _callback);
+	    File? getAsFile();
+	  };	
+	  
+	  //callback FunctionStringCallback void (DOMString data);
+	  
+	  [Callback, NoInterfaceObject]
+	  interface FunctionStringCallback {
+	    void handleEvent(DOMString data);
+	  };
+
+	  [Constructor(DOMString type, optional DragEventInit eventInitDict)]
+	  interface DragEvent : MouseEvent {
+	    readonly attribute DataTransfer? dataTransfer;
+	  };	
+	  dictionary DragEventInit : MouseEventInit {
+	    DataTransfer? dataTransfer;
+	  }; 
+    </pre>
+
+    <div id='log'></div>
+
+    <script>
+      var drop;
+      setup(function() {
+          drop = document.querySelector('#drop');
+      }, {explicit_done: true, explicit_timeout: true});
+      
+      on_event(drop, 'drop', function(event) {
+      	
+      	var dataTransfer = event.dataTransfer;
+        var itemList = event.dataTransfer.items;
+        var item = event.dataTransfer.items[0];
+
+        var idl_array = new IdlArray();
+
+        idl_array.add_untested_idls(document.getElementById('untested_idl').textContent);
+        idl_array.add_idls(document.getElementById('idl').textContent);
+
+        var testElement = document.getElementById('testElement');
+/*  
+        idl_array.add_objects({ DataTransfer: [],
+        						DataTransferItemList: [],
+        						DataTransferItem: [],
+        						DragEvent: []						
+        });
+*/ 
+        idl_array.add_objects({ DataTransfer: [dataTransfer],
+        						DataTransferItemList: [itemList],
+        						DataTransferItem: [item],
+        						DragEvent: []
+        });
+        idl_array.prevent_multiple_testing('DataTransfer');
+        idl_array.test();
+        
+        done();
+      });
+      
+    </script>
+  </body>
+</html>
