@@ -1,0 +1,164 @@
+﻿body { background:#FFFFFF;
+			font-family:"Microsoft YaHei", verdana, Arial, tahoma, 宋体, Helvetica, sans-serif;
+			font-size:12px;
+			color: #333; 
+			}
+			
+ 
+a:link {
+	color: #78ab10;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #78ab10;
+}
+a:hover {
+	color: green;	
+}
+a:active {
+	text-decoration: none;
+	color: #101010;
+}
+			
+#B_Header {
+	background: #fff;
+}
+
+.signout 
+{
+    text-align:right;
+    }
+
+#B_HeaderNav {
+	background: #fff;
+	height:25px;
+}
+
+#B_Outer_Wrapper {
+	background: #fff;
+	
+}
+#B_Wrapper {
+	background: #fff;
+}
+
+#B_LeftMainContainer {
+	width: 100%;
+	float: left;
+	background: #fff;
+}
+
+.btnleftNav 
+{
+    padding-left:30px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.btnleftNav2 
+{
+    padding-left:16px;
+    padding-top:2px;
+    padding-bottom:2px;
+}
+ 
+ul 
+{
+    text-decoration:none;
+    list-style-type:circle;
+    line-height:16px;
+}
+li 
+{
+    text-decoration:none;
+}
+
+.iHand
+{
+    cursor:pointer;
+}
+#B_Main {
+	margin-left: 178px;
+	border-width:1px;
+	border-color:#DAE9F6;
+	border-style:solid;
+	padding:10px 10px 10px 10px;
+	
+}
+#B_S2 {
+	padding:10px 0px 16px 0px;
+}
+#B_S3 {
+	padding:10px 0px 16px 0px;
+}
+ 
+input,select {
+border: 1px solid #CCC;
+ 
+}
+.sffocus {/*----for IE----*/
+background: #FDF5E6;
+border: 1px solid pink;
+}
+
+.hiV 
+{
+    border: 1px solid #9ACD32;
+    padding: 8px;
+}
+.thepanel
+{
+	border-bottom-width:1px;
+	border-bottom-color:#DAE9F6;
+	border-bottom-style:solid;
+	padding:6px 0px 10px 0px;
+}
+.thepanel2
+{
+	padding:16px 0px 6px 0px;
+}
+
+
+#B_S1
+{
+	padding:10px 0px 10px 0px;
+}
+ 
+#B_LeftNav {
+	width: 150px;
+	float: left;
+	border-width:1px;
+	border-color:#DAE9F6;
+	border-style:solid;
+	padding:10px 10px 10px 10px;
+	
+}
+ 
+
+ 
+#B_Footer 
+{
+    clear:both;
+	margin-top:4px;
+	border-top-style: solid;
+    border-top-color: #DAE9F6;
+    border-top-width:1px; 
+    font-size: 12px;
+    padding-top:4px;
+    color: #838383;
+}
+
+ 
+
+.repeaterclass a:link 
+{
+    text-decoration: none;
+	font-weight:bold;
+	
+}
+
+.clearing {
+	height: 0;
+	clear: both;
+}

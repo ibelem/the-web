@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Buy Beijing Rooms</title>
+<style type="text/css">
+	body {
+		width:800px;
+		margin:0px auto;
+		font-family:"Courier New", Courier, monospace;
+		font-size:12px;
+	}
+	div {
+		margin:20px auto;
+	}
+</style>
+</head>
+
+<body>
+<div>
+	IE8+, Firefox/Chrome/Safari/Opera: PASS <br/>
+	IE6: 没戏~
+</div> 
+<script type="text/javascript">
+
+	function BuyBeijingRooms() {
+		var sName;
+		var isBeijingJitiHukou;
+		var isPayTaxesMoreThan5Years;
+
+		this.__defineGetter__("sName",function() {
+			return sName});
+		
+		this.__defineSetter__("sName",function(val) {
+			sName = "你的名字: " + val});
+		
+		this.__defineGetter__("isBeijingJitiHukou",function() {
+			return isBeijingJitiHukou});
+		
+		this.__defineSetter__("isBeijingJitiHukou",function(boolVal) {
+			isBeijingJitiHukou = boolVal});
+		
+		this.__defineGetter__("isPayTaxesMoreThan5Years",function() {
+			return isPayTaxesMoreThan5Years});
+		
+		this.__defineSetter__("isPayTaxesMoreThan5Years",function(boolVal) {
+			isPayTaxesMoreThan5Years = boolVal});
+			
+		this.toBeOrNotToBe = function() {
+			if(isBeijingJitiHukou) {
+				alert(sName+ "\r\n" + "户口: 北京集体户口 \r\n" + "能否买房: 非在校生可以购房, 管你丫是否交满5年社保个税!");
+			} else {
+				if(isPayTaxesMoreThan5Years) {
+					alert(sName+ "\r\n" + "户口: 外地 \r\n" + "能否买房: 你社保个税交齐5年, 恭喜你, 现在即可买房!");
+				} else {
+					alert(sName+ "\r\n" + "户口: 外地 \r\n" + "能否买房: 外地户口找中介补交5年社保个税即可买房.");
+				}	
+			}
+		}
+
+		
+		//BuyBeijingRooms.prototype.toBeOrNotToBe = function() {
+
+	}
+
+	function toBe() {
+		var belem = new BuyBeijingRooms();
+		belem.sName = "minz";
+		belem.isBeijingJitiHukou= true;
+		belem.isPayTaxesMoreThan5Years=true;
+		belem.toBeOrNotToBe();
+		
+		var belemParents = new BuyBeijingRooms();
+		belemParents.sName = "外地人未缴任何税, 就是来炒房的";
+		belemParents.isBeijingJitiHukou= false;
+		belemParents.isPayTaxesMoreThan5Years=false;
+		belemParents.toBeOrNotToBe();
+
+		var waidiRen = new BuyBeijingRooms();
+		waidiRen.sName = "外地人已缴5年税";
+		waidiRen.isBeijingJitiHukou= false;
+		waidiRen.isPayTaxesMoreThan5Years=true;
+		waidiRen.toBeOrNotToBe();
+	}
+	
+	
+	function addEventHandler(oNode, sEvt, sFunc, bCaptures) { 
+		if(typeof(window.event) != "undefined") 
+			oNode.attachEvent("on" + sEvt, sFunc); 
+		else 
+			oNode.addEventListener(sEvt, sFunc, bCaptures); 
+	}
+		
+ 	addEventHandler(window, "load", toBe, false)
+
+</script>
+
+<p>&lt;script type=&quot;text/javascript&quot;&gt;<br><br>function BuyBeijingRooms() {<br>var 
+sName;<br>var isBeijingJitiHukou;<br>var isPayTaxesMoreThan5Years;<br><br>
+this.__defineGetter__(&quot;sName&quot;,function() { return sName});<br><br>
+this.__defineSetter__(&quot;sName&quot;,function(val) { sName = &quot;你的名字: &quot; + val});<br>
+<br>this.__defineGetter__(&quot;isBeijingJitiHukou&quot;,function() { return 
+isBeijingJitiHukou});<br><br>
+this.__defineSetter__(&quot;isBeijingJitiHukou&quot;,function(boolVal) {
+isBeijingJitiHukou = boolVal});<br><br>
+this.__defineGetter__(&quot;isPayTaxesMoreThan5Years&quot;,function() { return 
+isPayTaxesMoreThan5Years});<br><br>
+this.__defineSetter__(&quot;isPayTaxesMoreThan5Years&quot;,function(boolVal) {
+isPayTaxesMoreThan5Years = boolVal});<br><br>this.toBeOrNotToBe = function() {<br>
+if(isBeijingJitiHukou) {<br>alert(sName+ &quot;\r\n&quot; + &quot;户口: 北京集体户口 \r\n&quot; + &quot;能否买房: 
+非在校生可以购房, 管你丫是否交满5年社保个税!&quot;);<br>} else {<br>if(isPayTaxesMoreThan5Years) {<br>
+alert(sName+ &quot;\r\n&quot; + &quot;户口: 外地 \r\n&quot; + &quot;能否买房: 你社保个税交齐5年, 恭喜你, 现在即可买房!&quot;);<br>} else 
+{<br>alert(sName+ &quot;\r\n&quot; + &quot;户口: 外地 \r\n&quot; + &quot;能否买房: 外地户口找中介补交5年社保个税即可买房.&quot;);<br>} <br>
+}<br>}<br><br><br>//BuyBeijingRooms.prototype.toBeOrNotToBe = function() {<br>
+<br>}<br><br>function toBe() {<br>var belem = new BuyBeijingRooms();<br>
+belem.sName = &quot;minz&quot;;<br>belem.isBeijingJitiHukou= true;<br>
+belem.isPayTaxesMoreThan5Years=true;<br>belem.toBeOrNotToBe();<br><br>var 
+belemParents = new BuyBeijingRooms();<br>belemParents.sName = &quot;外地人未缴任何税, 
+就是来炒房的&quot;;<br>belemParents.isBeijingJitiHukou= false;<br>
+belemParents.isPayTaxesMoreThan5Years=false;<br>belemParents.toBeOrNotToBe();<br>
+<br>var waidiRen = new BuyBeijingRooms();<br>waidiRen.sName = &quot;外地人已缴5年税&quot;;<br>
+waidiRen.isBeijingJitiHukou= false;<br>waidiRen.isPayTaxesMoreThan5Years=true;<br>
+waidiRen.toBeOrNotToBe();<br>}<br><br><br>function addEventHandler(oNode, sEvt, 
+sFunc, bCaptures) { <br>if(typeof(window.event) != &quot;undefined&quot;) <br>
+oNode.attachEvent(&quot;on&quot; + sEvt, sFunc); <br>else <br>oNode.addEventListener(sEvt, 
+sFunc, bCaptures); <br>}<br><br>addEventHandler(window, &quot;load&quot;, toBe, false)<br>
+<br>&lt;/script&gt;<br></p>
+
+</body>
+
+</html>

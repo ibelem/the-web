@@ -1,0 +1,246 @@
+﻿html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;  
+	background-color: #fff;
+	color: #585858;
+	font-size: 9pt;
+	font-family: "Trebuchet MS", helvetica, sans-serif;
+}
+html>body #wrap {height:100%;}  
+#headertop {
+	width:100%;
+	height:16px;
+}
+html>body #headertop {
+	position:fixed;
+	z-index:10;  
+}
+
+    	.hidden {
+    		display: none;
+    	}
+ 
+ 
+a img{ border:none; }
+
+div.fixed
+{
+width: 850px !important;
+}
+
+#belemfooterim {
+	width:100%;
+	height:122px;
+}
+html>body #belemfooterim {
+ position:fixed;
+	bottom:0;
+	z-index:11; 
+}
+
+div#belemfooterim { 
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='mybt.png',sizingMethod='scale');
+}
+div#belemfooterim[id] {
+ background: transparent url('mybt.png') top repeat-x;
+}
+
+#headertop {
+	background:#DAEFFF;
+	font-size:11px;
+	color:#aaa;
+	font-family:verdana, sans-serif;
+	border-bottom:1px dashed #FFDDF1;
+	text-align: center;
+}
+
+.belemfooterim_contain {
+ width: 920px;
+ margin: 0 auto 0 auto;
+ }
+ 
+h1#logo { 
+ float: right;
+ overflow:hidden;
+ position: relative;
+ width: 213px;
+ height: 89px;
+ margin: 0;
+ filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='logo.png',sizingMethod='crop');
+ }
+
+
+
+h1#logo[id] {
+ background: transparent url('logo.png') top left;
+ }
+
+ 
+h1#logo a { 
+ display:block;
+ text-indent: -9000px;
+ width: 213px;
+ height: 89px;
+ border:0;
+ }
+
+#belemfootertext {
+ float: left;
+ margin-top: 75px;
+ width: 390px;
+ margin-left:90px;
+ position: static;
+ } 
+ 
+ #header
+{
+width:100%;
+height:120px;
+}
+
+#headerleiste {
+ width: 100%;
+height: 10px;
+background-color: #E5228A;
+color: #E5228B;
+}
+
+#header_inner
+{
+position: relative;
+width: 900px;
+height:122px;
+margin: 0 auto;
+}
+
+#homebutton {
+position: relative;
+left: 0;
+top: 0;
+right: 20px;
+float: right;
+width: 141px;
+height: 151px;
+background-image: url('bt.gif');
+}
+
+a
+{
+text-decoration: underline;
+color: #E5228A;
+}
+
+a:hover
+{
+text-decoration: none;
+}
+
+.banners li {
+	display: block;
+	float: left;
+	list-style: none;
+	width: 260px;
+	margin-left: 5px;
+	margin-bottom: 15px;
+}
+
+ 
+
+.thecenter 
+{
+    margin:10px auto;
+    text-align:center;
+}
+
+* html .thecenter 
+{
+    margin:10px auto;
+    text-align:left;
+}
+
+ul
+{
+list-style: none;
+}
+
+ul li
+{
+line-height: 2em;
+}
+
+#v_logo
+{
+background-image: url('logo.jpg');
+width: 254px;
+height: 200px;
+position: absolute;
+top: 20px;
+bottom: 0.6em;
+}
+
+#v_logo h1
+{
+display: inline;
+font-size: 2.6em;
+}
+
+#v_logo h2
+{
+display: inline;
+padding-left: 0.5em;
+font-size: 1.0em;
+}
+  
+#main_inner
+{
+position: relative;
+width: 900px;
+margin: 0 auto;
+padding-top: 3.5em;
+}
+
+ 
+	
+	#main_belem_3c
+	{
+	position: relative;
+	margin-right: 34em;
+	text-align:left;
+	}
+	
+	#belem_3c_l1
+	{
+	position: relative;
+	float: left;
+	width: 100%;
+	margin-right: -34em;
+	padding-right: 2em;
+	}
+	#belem_3c
+	{
+	float: right;
+	}
+	
+	#belem_3c_l2
+	{
+	width: 12.5em;
+	float: left;
+	padding: 0em 2em 0.5em 2em;
+	border-left: dotted 1px #E1E1E1;
+	}
+	
+	#belem_3c_l3
+	{
+	width: 12.5em;
+	float: left;
+	padding: 0em 0em 0.5em 2em;
+	border-left: dotted 1px #E1E1E1;
+	}
+	
+ 
+ 
+
+  
+

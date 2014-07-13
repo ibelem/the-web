@@ -1,0 +1,1 @@
+<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Counter.ascx.cs" Inherits="ASCX_Counter" %>
