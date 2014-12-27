@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>GeoTest</title>
+<style type="text/css">
+	div {
+	height:auto;
+}
+	#geoMap{
+		width:100%;
+		height:100%;
+	}
+</style>
+</head>
+
+<body>
+
+
+<div id="addAfterLoad">
+
+</div>
+
+
+<iframe id="geoMap" border="0"></iframe>
+
+
+<script type="text/javascript">
+	function googleMapIt(p)
+	{ 
+	  var detail ='<b>Latitude: </b> ' + 
+		  p.coords.latitude + ' <b> Longitude:</b> ' +
+		  p.coords.longitude;
+	  document.getElementById("addAfterLoad").innerHTML = detail; 
+	  var map= 'http://maps.google.com/maps?&z=15&output=embed&ll='+p.coords.latitude+','+p.coords.longitude;        
+	  document.getElementById("geoMap").src=map;
+	}
+	
+	if (navigator.geolocation) {
+	  navigator.geolocation.getCurrentPosition(googleMapIt);
+	}
+	else {
+	  var detail ='<b>Your browser does not support geolocation!</b>';
+	  document.getElementById("addAfterLoad").innerHTML = detail;
+	}
+</script>
+
+</body>
+
+</html>

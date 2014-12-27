@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>博彦培训月刊 - 第一期</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+<meta http-equiv="Content-Language" content="utf-8" />
+<meta name="robots" content="all" />
+<meta name="author" content="beyondsoft, 博彦科技" />
+<meta name="Copyright" content="Copyright (c) 2008 博彦培训月刊编辑社" />
+<meta name="description" content="博彦培训月刊" />
+<meta name="keywords" content="博彦培训月刊" />
+<link type="text/css" href="../../css/articles.css" media="all" rel="stylesheet" />
+<link type="text/css" href="../../css/nav.css" media="all" rel="stylesheet" />
+<style type="text/css">
+#authorImgnow_wur {
+	height:64px;
+	width:64px;
+	background:#fff url('../../img/64_64/wurui.jpg') no-repeat;
+}
+</style>
+
+<script type="text/javascript" src="../../js/jquery-1.1.3.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.lavalamp.min.js"></script>
+<script type="text/javascript" src="../../js/wego.js"></script>
+</head>
+
+<body>
+<div id="wrap">
+<div id="header">
+<div id="nav">
+<ul class="ui-tabs-nav" id="1">
+ 	<li><a href="../../default.htm" title="Home page">首 页</a></li>
+    <li><a href="../../articles.htm" title="Articles">存 档</a></li>
+    <li><a href="../../topics.htm" title="Topics">栏 目</a></li>
+    <li><a href="../../contribution.htm" title="Contribution">投 稿</a></li>
+    <li><a href="../../about.htm" title="About">关 于</a></li>
+</ul>
+</div>
+<div id="mNum">第一期 2008.06.10</div>
+<div id="logo"></div>
+</div>
+<div id="main">
+<div id="left">
+<div class="article">
+<div class="title">Intl Automation和LCS</div>
+<div class="articleby">文/吴锐</div>
+<div class="items">
+1979年，当我们还在和别人打仗的时候，Glenford J. Myers提出了他对软件测试的定义：“就是以发现错误为目的而运行程序的过程。”</div>
+<div class="items">
+-- The process of executing a program or system with the intent of finding errors.
+</div><div class="items">
+遵循这条铁的规律，无数测试工程师忙碌不止。为了减轻工程师们的负担，人们考虑是否能应用软件测试自动化，通过它来代替人类的一部分脑力劳动。这对于已经习惯于进步和发展的人们不是一个难以接受的概念，没有人还像当年怀疑火车是否能跑过马车那样怀疑这个是否能实现。
+</div><br/>
+<div style="background:#fff url('img/lcs.gif') no-repeat center; height:199px;width:665px; "></div><br/>
+<div class="items">
+是的，毋庸置疑，人们做到了。他们在测试中应用了automation.但是，遗憾的是，那只是在软件的性能和功能方面。在界面的测试方面，由于众所周知的的原因，Intl automation始终处在automation的边缘。因为，没有人相信电脑会自己判断出界面布局是否合理，某个控件的大小是否合乎人类的审美观。毕竟人类距离人工智能还有很远的路要走。于是，Intl automation便成了软件生产工艺里最不起眼的黑暗角落，工程师们已经忘记了它。偶尔看见，也没有人相信这个角落里隐藏多大的价值。随着软件产品的全球化应用，软件产品的测试种类衍生出全球化测试和本地化测试。这些测试如此重要，以至于它决定产品市场化的成败；同时这些测试也是如此的耗费人力，以至于它超过传统的功能，性能等测试类型。这个现象就像一束光，照亮了Intl Automation。哪里有问题，哪里就有解决方案（遥想四川灾区，这话用在解放军身上似乎也可）。Intl automation虽然困难重重，但还是有比较可行的解决方案的。如LCS就可以提供比较合适的解决方案。那么，LCS是什么？为什么它能够提供比较有效的解决方法？
+</div><div class="items">
+LCS 即Local Console Station, 是基于微软公司的WTT, SD，和VS等系统的一套Intl Automation 解决方案。通过它，我们可以将Intl Automation的威力释放出来，还其与其他automation一样的地位。至于它为什么能提供比较有效的解决方案，我们在下面将进行一系列的技术列举和讨论。</div>
+<div class="items">从技术上说，Intl automation之所以难以实现，是因为它有几个很难克服的问题。
+</div>
+<div class="items">1）界面的布局等情况不能被automation code直接检测出来是否有问题。只能人肉眼才能有效判断。这个是永恒的经典问题，也是Intl automation边缘化的主要原因。
+</div>
+<div class="items">2）多个test pass和多个市场的重叠情况过于复杂，不像功能、性能automation不需要管理市场信息。对比功能/性能automation, 我们可以发现功能/性能automation只需要管理好几个test pass就足够了；每个test pass下面直接就对应到测试用例，增加删除用例只需要在test pass里面直接操作就可以了。但是Intl automation是万没这么简单的，每个test pass是不能直接和用例挂上钩的，因为每个市场支持的test case可能是不一样的。如A市场可能只支持100条test case，而B市场则支持300条。每个市场都需要单独的管理和维护。因而，问题就出现了。假如有100个市场，我怎么维护？
+</div>
+<div class="items">3）UI界面变化频繁导致automation的测试用例维护难度过大。这是Intl automation难以进入实用阶段的又一主要原因，UI是软件变化最大，变化最频繁的部分。如果没有好的机制来处理频繁的UI变化，大部分的automation test case都不会得到理想的结果。
+</div>
+<div class="items">4) automation用例运行时意外中断的几率很大，低通过率的test pass对Intl automation没有意义。
+</div>
+<div class="items">针对这四大类问题，LCS争锋相对，提供比较有效的解决方式：
+</div>
+<div class="items">1) Intl automation的结果在目前阶段只能是以截图作为产出。工程师必须在仔细检查截图上的UI情况后才能确认UI是否显示完好。考虑到目前的技术水平，这是Intl automation的较好选择了。
+</div>
+<div class="items">2)	LCS提供必需的test pass/market管理
+通过LCS我们能对每个市场进行精细管理，可以让不同的市场运行不同的test case。同时，
+我们可以设定某个市场的运行间隔时间，以保证WTT里面的VM资源能得到合理分配。我们可以设定某个市场的优先级，让比较重要的市场先完成，以保证重要市场优先被检查，等等。
+
+</div>
+<div class="items">3)	LCS 会建立一条全自动软件测试流水线，这条流水线的原料是工程师写好的自动化用例的代码，产出的是严格组织包装好的截图产品。这条自动化流水线的作用就是能把工程师从繁琐的WTT 操作，SD操作，截图管理中解放出来。给他们更多的时间和精力，以便应付UI的频繁变化。同时通过这条流水线极大提高截图的产出效率。
+</div>
+<div class="items">4)	LCS能对这个生产流水线的各个环节进行有效的管理。
+LCS能快速的调整市场信息，如test case，优先级，间隔时间等。LCS也同组织管理截图，生成有序的截图仓库。当然，最主要的还是LCS能调整流水线，告诉他生产什么截图，生成谁的截图，某个test pass的，某个市场的，均可。
+
+</div>
+<div class="items">5)	LCS提供必要的补充机制。可以快速的rerun 中断的test case，在第一时间为测试team提供新鲜截图。
+</div>
+
+<div class="items">此为LCS的大概情况。当然LCS是不完善的，还有很多的漏洞和不完善的地方。但，尽力而为子，望我辈能多少解决一些问题吧。戏里唱，重整河山待后生……. 现实世界里，我们却不能再等待。
+</div>
+
+
+<div class="articleAboutMale">
+<div class="authorImg"><div id="authorImgnow_wur"></div></div>
+<div class="authorAbout">作者信息: 吴锐<br/><br/>
+<div class="iabout">来博彦三年，做过几个微软项目，目前在Windows Live Calendar Int'l team 做SDET，有丰富的自动化测试经验，其中有两篇有关测试的文章曾发表在《程序员》杂志。</div><br/>
+<div class="iabout">
+E-Mail: <span class="bidi">X@microsoft.com</span><br/>
+	 MSN: <span class="bidi">X@microsoft.com</span>
+	 </div>
+</div>
+</div>
+<div id="fnav">
+<ul id="pagination-digg">    
+       <li  class="next"><a href="learningscript.htm"> &raquo;</a></li>
+      <li><a href="hottech.htm">5</a></li>
+      <li><a href="specialfocus.htm">4</a></li>      <li class="active">3</li>
+      <li><a href="monthlyoverview.htm">2</a></li>
+      <li><a href="default.htm">1</a></li>
+     	<li class="previous-off">&laquo; </li>
+</ul>
+</div>
+
+<div class="articleFooter"></div>
+</div>
+</div>
+
+
+<div id="right">
+<div class="notes">
+<h4>本期内容</h4>
+<ol class="catalog">
+<li><a href="default.htm" title="">刊首语(Preface)</a></li>
+<li><a href="monthlyoverview.htm" title="">月培训总揽(Monthly Overview)</a></li>
+<li><a href="feature.htm" title="">特写(Feature)</a></li>
+<li><a href="specialfocus.htm" title="">特别关注(Special Focus)</a></li>
+<li><a href="hottech.htm" title="">热点技术(Hot Tech &amp; Info)</a></li>
+<li><a href="learningscript.htm" title="">学习手记(Learning Script)</a></li>
+<li><a href="management.htm" title="">管理(Management)</a></li>
+<li><a href="innovation.htm" title="">创新(Innovation)</a></li>
+<li><a href="transformation.htm" title="">成长(Transformation)</a></li>
+</ol>
+</div>
+</div>
+
+</div>
+<div style="clear: both;"></div>
+<div id="footer">
+&copy;2008 <span style="color:#669900">B</span><span style="color:#FF3399">T</span><span style="color:#3366FF">O</span> Beyondsoft Training Online - 博彦培训月刊 保留所有权利
+</div>
+</div>
+
+</body>
+
+</html>

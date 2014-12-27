@@ -1,0 +1,76 @@
+    <Style Alias="OrangeDaisies" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://spaces.microsoft.com/namespaces/Style.xsd">
+      <BackGround>
+        <Color>
+          <SpaceHeaderBG>DA723F</SpaceHeaderBG>
+          <AdSectionBG />
+          <FooterBG />
+          <OuterBodyBG>DA723F</OuterBodyBG>
+          <InnerBodyBG>FD8346</InnerBodyBG>
+          <SecondarySelTab>FD8346</SecondarySelTab>
+          <PartNavbarBG>FEE5D6</PartNavbarBG>
+          <AltListItemBG>FEE5D6</AltListItemBG>
+          <BlogEntryBG>FEE5D6</BlogEntryBG>
+          <PartBG>ffffff</PartBG>
+          <SettingsHeaderBG>FEE5D6</SettingsHeaderBG>
+          <SaveRow>FD8346</SaveRow>
+          <BlogEntryNormalTab>FEE5D6</BlogEntryNormalTab>
+          <FirstLevelNav>FD8346</FirstLevelNav>
+          <SecondaryNav>D86F3B</SecondaryNav>
+          <PartsHeader>FD8346</PartsHeader>
+          <BlogSectionTitleBG>FD8346</BlogSectionTitleBG>
+        </Color>
+        <Image>
+          <BodyBGImage BackgroundPosition="" BackgroundRepeat="" />
+          <InnerBodyBGImage BackgroundPosition="50 50" BackgroundRepeat="repeat" Transparency="">bkg.gif</InnerBodyBGImage>
+          <SpacesHeaderBGImage BackgroundPosition="" BackgroundRepeat="repeat-x">header.gif</SpacesHeaderBGImage>
+          <PartsBGImage BackgroundPosition="" BackgroundRepeat="" />
+          <NavBGImage BackgroundPosition="" BackgroundRepeat="" />
+          <PartsHeaderImage BackgroundPosition="" BackgroundRepeat="repeat-x">mid_grad.gif</PartsHeaderImage>
+        </Image>
+      </BackGround>
+      <TextColor>
+        <FooterFontColor>ffffff</FooterFontColor>
+        <HeaderFontColor>ffffff</HeaderFontColor>
+        <AdsFontColor>ffffff</AdsFontColor>
+        <FirstLevelNavFontColor>ffffff</FirstLevelNavFontColor>
+        <SecondaryNavFontColor>ffffff</SecondaryNavFontColor>
+        <SecondarySelTabFontColor>ffffff</SecondarySelTabFontColor>
+        <LinkAndListBullet>C76535</LinkAndListBullet>
+        <MemberProfileEditLink>000000</MemberProfileEditLink>
+        <ContentFontColor>000000</ContentFontColor>
+        <PartHeaderFontColor>000000</PartHeaderFontColor>
+        <PartNavbarFontColor>C76535</PartNavbarFontColor>
+        <ColumnHeaderFontColor>7f7f7f</ColumnHeaderFontColor>
+        <PartSubheaderFontColor />
+        <BlogEntrySelTabFontColor />
+        <BlogEntryNormalTabFontColor />
+        <SettingsHeaderFontColor />
+        <BlogSectionTitleFontColor>000000</BlogSectionTitleFontColor>
+        <BlogSectionTitleLinkFontColor />
+      </TextColor>
+      <BorderStyle>
+        <BorderStyle1>1px solid #FD8346</BorderStyle1>
+        <BorderStyle2>1px solid #FD8346</BorderStyle2>
+        <BorderStyle3>1px solid #FD8346</BorderStyle3>
+        <BorderStyle4>1px solid #FD8346</BorderStyle4>
+        <SharkfinLine>1px solid #2680B4</SharkfinLine>
+        <SettingsHeader>5px solid #FEE5D6</SettingsHeader>
+        <CascadeSettingsHeader>20px solid #FEE5D6</CascadeSettingsHeader>
+        <PartsBorder>1px solid #FD8346</PartsBorder>
+        <InnerListBorder>1px solid #FD8346</InnerListBorder>
+        <MainNavTopLine>1px solid #FBB78D</MainNavTopLine>
+      </BorderStyle>
+      <ContactCard>
+        <TitleBarBackground>FBB088</TitleBarBackground>
+        <TitleBarForeground>000000</TitleBarForeground>
+        <TitleBarFontFace />
+        <ClientAreaBackground>F8F8F8,FADED1</ClientAreaBackground>
+        <ClientAreaForeground>000075</ClientAreaForeground>
+        <ClientAreaFontFace />
+        <ClientAreaBackgroundImage>OrangeDaisies_card_bkgd.gif</ClientAreaBackgroundImage>
+        <ToolBarBackground>FBB08B,FADED1</ToolBarBackground>
+        <ToolBarForeground>000075</ToolBarForeground>
+        <ToolBarFontFace />
+        <BorderColor>D86F38</BorderColor>
+      </ContactCard>
+    </Style>

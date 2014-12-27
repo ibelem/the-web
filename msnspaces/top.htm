@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>BELEM 2007</title>
+		<meta http-equiv="content-type" content="text/xml; charset=utf-8" />
+		<script type="text/javascript" src="xbImportNode.js"> </script>
+		<script type="text/javascript">
+			//<![CDATA[
+			var xhr = false;
+
+			function gotoPage(p_url) {
+				if (window.XMLHttpRequest) {
+					xhr = new XMLHttpRequest();
+				} else {
+					try {
+						xhr = new ActiveXObject('Msxml2.XMLHTTP');
+					} catch (ex) {
+						try {
+							xhr = new ActiveXObject('Microsoft.XMLHTTP');
+						} catch (ex) {
+							xhr = false;
+						}
+					}
+				}
+				if (!xhr)
+					return (false);
+				else {
+					xhr.open('get', p_url, true);
+					xhr.onreadystatechange = showPageContent;
+					xhr.send(null);
+				}
+				return (false);
+			}
+
+			function showPageContent() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var newNode = null, tempNode = null, importedNode = null;
+
+					/* IE is "special" */
+					if (xhr.responseXML.childNodes.length == 0) {
+						var tempString = xhr.responseText;
+
+						var start = 0, end = 0;
+						start = tempString.indexOf('<div id="documentBodyContent"');
+						end = tempString.indexOf('<div id="documentFooter"');
+						tempString = tempString.substring(start, end);
+						tempNode = new ActiveXObject('Microsoft.XMLDOM');
+						tempNode.async = false;
+						tempNode.loadXML(tempString);
+						tempNode = tempNode.getElementsByTagName('div');
+					} else
+						tempNode = xhr.responseXML.getElementsByTagName('div');
+					for (var i = 0, il = tempNode.length; i < il; i++)
+						if (tempNode[i].getAttribute('id') == 'documentBodyContent') {
+							newNode = tempNode[i];
+							break;
+						}
+					if (newNode.nodeType != document.ELEMENT_NODE)
+						newNode = newNode.nextSibling;
+					if (newNode) {
+						importedNode = document._importNode(newNode, true);
+						document.getElementById('xhrFrame').innerHTML = '';
+						document.getElementById('xhrFrame').appendChild(importedNode);
+						if (!document.importNode)
+							document.getElementById('xhrFrame').innerHTML = document.getElementById('xhrFrame').innerHTML;
+					}
+				}
+			}
+			//]]>
+		</script>
+<script src="http://lieb.cn/zhangmin/supports/js/prototype.js" type="text/javascript"></script>
+<script src="http://lieb.cn/zhangmin/supports/js/effects.js" type="text/javascript"></script>
+<script src="mySwitch.js" type="text/javascript"></script>
+<link type="text/css" href="my.css" media="screen" rel="Stylesheet" />
+	</head>
+	<body>
+		<div id="documentHeader">
+		</div>
+		
+		<p />
+		<div id="documentBodyContent">
+			<div id="xhrFrame">
+			<div class="MyCenter">
+<img src="http://belemmusic.googlepages.com/iam2.gif" alt=""/><br />
+Windows Live Messenger 8.5, Windows Live Writer 即将发布.
+</div>
+			
+<div class="iCenter">
+ <div id="headerquote">欢迎您来到BELEM的共享空间...
+	<div class="quotedby">— Welecom to Belem's Space.</div>
+</div>
+
+</div>
+
+				
+			</div>
+		</div>
+		<div id="documentFooter">
+		<div id="menuContainer">
+			<ul id="listContainer">
+					<li><a href="MainPagePreview.htm" target="_blank" title="MSN Spaces 3周年经典页面重现">MSN Spaces 3周年</a></li>
+				<li><a href="Remember.html" onclick="return gotoPage(this.href);" title="The Beijing Team in the memory.">Remember The Team.</a></li>
+				<li><a href="ThanksTo.html" onclick="return gotoPage(this.href);" title="谢谢您的来访">Thanks To 致谢</a></li>
+			</ul>
+		</div>
+		</div>
+	</body>
+</html>

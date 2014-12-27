@@ -1,0 +1,113 @@
+html {
+	margin: 0 1em;
+}
+body {
+	margin:1em auto;
+	padding:0;
+	font-size: 1em;
+	width: 64em;
+	font-family: 华文雅黑, helvetica, san-serif;}
+	#documentHeader { margin-bottom: 0px; }
+	#documentFooter { position: fixed; top: 5px; }
+
+ol {
+	font-size: 0.72em;
+	padding: 0;
+	margin: 0px auto;
+	width: 11.0em;
+	float: left;
+	text-align:left;
+}
+
+ul {
+	font-size: 0.72em;
+	padding: 0;
+	margin: 0px auto;
+	width: 11.0em;
+	float: left;
+	text-align:left;
+}
+
+ul li {
+	padding: 0.23em 0;
+	list-style-type: none;
+}
+
+ul li a, ol li a:link {
+	text-decoration: none;
+	color: #ff689b;
+	width: auto;
+}
+
+ol li {
+	padding: 0.23em 0;
+	list-style-type: none;
+}
+
+ol li a, ol li a:link {
+	text-decoration: none;
+	color: #858585;
+	width: auto;
+	display: block;
+}
+
+ul li a:link strong, ul li a strong {
+		color: #ff689b;
+		font-family: 华文雅黑;
+		font-weight: 100;
+		margin-right: 0px;
+}
+
+ul li a:hover {
+	color: #ff689b;
+	font-size:small;
+	font-weight:bold;
+}
+
+ol li a:link strong, ol li a strong {
+		color: #0066cc;
+		font-family: 华文雅黑;
+		font-weight: 100;
+		margin-right: 0px;
+}
+
+ol li a:hover {
+	color: #00a5ff;
+	font-size:small;
+	font-weight:bold;
+}
+.MyCenter {
+	text-align:center;
+}
+.iCenter {
+	clear:both;
+	text-align:left;
+	margin-left:430px;
+	}
+.myMarquee {
+	font-family:"Courier New", Courier, monospace;
+	width:84%;
+	border:1px dashed gray; 
+	background-color:#FaFeFF; 
+	padding:4px; 
+	font-size:12px; 
+	clear:both;
+	color:#06c;
+}
+.ITen {
+	border-left:40px #fff solid;
+}
+
+#headerquote {
+	float: left;
+	font-size:12px; 
+	margin-top: 20px;
+	color: #ff689b;  
+}
+
+.quotedby {
+	text-align: center;
+	font-size:12px; 
+	font-style: italic;
+	color: #999;
+}

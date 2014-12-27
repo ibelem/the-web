@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="../../xsl/200808.xsl" ?>
+<b>
+  <e>博彦培训月刊</e>
+  <l>第三期</l>
+  <e2> 2008.08.10</e2>
+  <m>
+    <title>Ajax 技术</title>
+    <author>
+    	<name>徐 桢</name>
+    	<intro>特别关注 (Special Focus) 板块责编. 软件园3楼里屋进门左手侧红色柱子下.</intro>
+    	<email>v-zhenx@microsoft.com / xuzhen@beyondsoft.com</email>
+		<other>MSN: msnalucard@hotmail.com / QQ: 270106429</other>
+		<img>xuzhen.jpg</img>
+    </author>
+    <article>
+ 
+ 		<i>
+ 			<section>遥想当年上大学之时，年少轻狂，放荡不羁。稍稍了解了点数据库安全的东西就开始忘乎所以，对学校机房里无辜的计算机痛下毒手，想尽一切办法发动了不计其数，近乎变态的攻击，尽情体会那种莫名的快感。得手以后仿佛自己一夜之间就变成了精通武林秘籍的黑客，顺便捞得在美眉面前炫耀的资本，激动之情难于言表。如今人老珠黄，武功尽废，平静之心难以再起涟漪，思想的灵动重新回归理性，在开发与测试之间寻找着某种平衡。于是写下了下面的话：SQL注入攻击无论对于开发者还是测试者，都是难于回避的话题，也是衡量一个系统安全性的重要标准之一，测试者在挥刃搏击，开发者在举盾防御，一攻一防，系统的安全才得以加强。</section>
+ 		</i>
+ 		<i>
+ 			<section>SQL注入攻击的种类：</section>
+ 		</i>
+ 		<i>
+ 			<section>1.没有正确过滤转义字符</section>
+ 		</i>
+ 		<i>
+ 			<section>在用户的输入没有为转义字符过滤时，就会发生这种形式的注入式攻击，它会被传递给一个SQL语句。这样就会导致应用程序的终端用户对数据库上的语句实施操纵。比方说，下面的这行代码就会演示这种漏洞：</section>
+ 		</i>
+ 		<i>
+ 			<section>statement := "SELECT * FROM users WHERE name = '" + userName + "'; "</section>
+ 		</i>
+ 		<i>
+ 			<section>这种代码的设计目的是将一个特定的用户从其用户表中取出，但是，如果用户名被一个恶意的用户用一种特定的方式伪造，这个语句所执行的操作可能就不仅仅是代码的作者所期望的那样了。例如，将用户名变量(即username)设置为：</section>
+ 		</i>
+ 		<i>
+ 			<section>a' or 't'='t，此时原始语句发生了变化：</section>
+ 		</i>
+ 		<i>
+ 			<section>SELECT * FROM users WHERE name = 'a' OR 't'='t';  </section>
+ 		</i>
+ 		<i>
+ 			<section>如果这种代码被用于一个认证过程，那么这个例子就能够强迫选择一个合法的用户名，因为赋值't'='t永远是正确的。</section>
+ 		</i>
+ 		<i>
+ 			<section>在一些SQL服务器上，如在SQL　Server中，任何一个SQL命令都可以通过这种方法被注入，包括执行多个语句。下面语句中的username的值将会导致删除“users”表，又可以从“data”表中选择所有的数据(实际上就是透露了每一个用户的信息)。</section>
+ 		</i>
+ 		<i>
+ 			<section>a'; DROP TABLE users; SELECT * FROM data WHERE name LIKE '%</section>
+ 		</i>
+ 		<i>
+ 			<section>这就将最终的SQL语句变成下面这个样子：</section>
+ 		</i>
+ 		<i>
+ 			<section>SELECT * FROM users WHERE name = 'a'; DROP TABLE users; SELECT * FROM data WHERE name LIKE '%';</section>
+ 		</i>
+ 		<i>
+ 			<section>其它的SQL执行不会将执行同样查询中的多个命令作为一项安全措施。这会防止攻击者注入完全独立的查询，不过却不会阻止攻击者修改查询。</section>
+ 		</i>
+ 		<i>
+ 			<section>2.Incorrect type handling:</section>
+ 		</i>
+ 		<i>
+ 			<section>如果一个用户提供的字段并非一个强类型，或者没有实施类型强制，就会发生这种形式的攻击。当在一个SQL语句中使用一个数字字段时，如果程序员没有检查用户输入的合法性(是否为数字型)就会发生这种攻击。例如：</section>
+ 		</i>
+ 		<i>
+ 			<section>statement := "SELECT * FROM data WHERE id = " + a_variable + "; "</section>
+ 		</i>
+ 		<i>
+ 			<section>从这个语句可以看出，作者希望a_variable是一个与“id”字段有关的数字。不过，如果终端用户选择一个字符串，就绕过了对转义字符的需要。例如，将a_variable设置为:1; DROP TABLE users，它会将“users”表从数据库中删除，SQL语句变成：SELECT * FROM data WHERE id = 1; DROP TABLE users; </section>
+ 		</i>
+ 		<i>
+ 			<section>3.数据库服务器中的漏洞</section>
+ 		</i>
+ 		<i>
+ 			<section>有时，数据库服务器软件中也存在着漏洞，如MYSQL服务器中mysql_real_escape_string()函数漏洞。这种漏洞允许一个攻击者根据错误的统一字符编码执行一次成功的SQL注入式攻击。</section>
+ 		</i>
+ 		<i>
+ 			<section>4.盲目SQL注入式攻击</section>
+ 		</i>
+ 		<i>
+ 			<section>当一个Web应用程序易于遭受攻击而其结果对攻击者却不见时，就会发生所谓的盲目SQL注入式攻击。有漏洞的网页可能并不会显示数据，而是根据注入到合法语句中的逻辑语句的结果显示不同的内容。这种攻击相当耗时，因为必须为每一个获得的字节而精心构造一个新的语句。但是一旦漏洞的位置和目标信息的位置被确立以后，一种称为Absinthe的工具就可以使这种攻击自动化。</section>
+ 		</i>
+ 		<i>
+ 			<section>5.条件响应</section>
+ 		</i>
+ 		<i>
+ 			<section>注意，有一种SQL注入迫使数据库在一个普通的应用程序屏幕上计算一个逻辑语句的值：</section>
+ 		</i>
+ 		<i>
+ 			<section>SELECT booktitle FROM booklist WHERE bookId = 'OOk14cd' AND 1=1</section>
+ 		</i>
+ 		<i>
+ 			<section>这会导致一个标准的页面，而语句SELECT booktitle FROM booklist WHERE bookId = 'OOk14cd' AND 1=2在页面易于受到SQL注入式攻击时，它有可能给出一个不同的结果。如此这般的一次注入将会证明盲目的SQL注入是可能的，它会使攻击者根据另外一个表中的某字段内容设计可以评判真伪的语句。</section>
+ 		</i>
+ 		<i>
+ 			<section>6.条件性差错:</section>
+ 		</i>
+ 		<i>
+ 			<section>如果WHERE语句为真，这种类型的盲目SQL注入会迫使数据库评判一个引起错误的语句，从而导致一个SQL错误。例如：</section>
+ 		</i>
+ 		<i>
+ 			<section>SELECT 1/0 FROM users WHERE username='Ralph'。显然，如果用户Ralph存在的话，被零除将导致错误。 </section>
+ 		</i>
+ 		<i>
+ 			<section>7.时间延误:</section>
+ 		</i>
+ 		<i>
+ 			<section>时间延误是一种盲目的SQL注入，根据所注入的逻辑，它可以导致SQL引擎执行一个长队列或者是一个时间延误语句。攻击者可以衡量页面加载的时间，从而决定所注入的语句是否为真。</section>
+ 		</i>
+ 		<i>
+ 			<section>以上仅是对SQL攻击的粗略分类。但从技术上讲，如今的SQL注入攻击者们在如何找出有漏洞的网站方面更加聪明，也更加全面了。出现了一些新型的SQL攻击手段。黑客们可以使用各种工具来加速漏洞的利用过程。我们不妨看看the Asprox Trojan这种木马，它主要通过一个发布邮件的僵尸网络来传播，其整个工作过程可以这样描述：首先，通过受到控制的主机发送的垃圾邮件将此木马安装到电脑上，然后，受到此木马感染的电脑会下载一段二进制代码，在其启动时，它会使用搜索引擎搜索用微软的ASP技术建立表单的、有漏洞的网站。搜索的结果就成为SQL注入攻击的靶子清单。接着，这个木马会向这些站点发动SQL注入式攻击，使有些网站受到控制、破坏。访问这些受到控制和破坏的网站的用户将会受到欺骗，从另外一个站点下载一段恶意的JavaScript代码。最后，这段代码将用户指引到第三个站点，这里有更多的恶意软件，如窃取口令的木马。</section>
+ 		</i>
+ 		<i>
+ 			<section>以前，我们经常警告或建议Web应用程序的程序员们对其代码进行测试并打补丁，虽然SQL注入漏洞被发现和利用的机率并不太高。但近来攻击者们越来越多地发现并恶意地利用这些漏洞。因此，在部署其软件之前，开发人员应当更加主动地测试其代码，并在新的漏洞出现后立即对代码打补丁。 </section>
+ 		</i>
+ 		<i>
+ 			<section>防御和检查SQL注入的手段:</section>
+ 		</i>
+ 		<i>
+ 			<section>1.使用参数化的过滤性语句</section>
+ 		</i>
+ 		<i>
+ 			<section>要防御SQL注入，用户的输入就绝对不能直接被嵌入到SQL语句中。恰恰相反，用户的输入必须进行过滤，或者使用参数化的语句。参数化的语句使用参数而不是将用户输入嵌入到语句中。在多数情况中，SQL语句就得以修正。然后，用户输入就被限于一个参数。下面是一个使用Java和JDBC API例子</section>
+ 		</i>
+ 		<i>
+ 			<section>PreparedStatement prep = conn.prepareStatement("SELECT * FROM USERS WHERE PASSWORD=?"); </section>
+ 		</i>
+ 		<i>
+ 			<section>prep.setString(1, pwd); </section>
+ 		</i>
+ 		<i>
+ 			<section>总体上讲，有两种方法可以保证应用程序不易受到SQL注入的攻击，一是使用代码复查，二是强迫使用参数化语句的。强迫使用参数化的语句意味着嵌入用户输入的SQL语句在运行时将被拒绝。不过，目前支持这种特性的并不多。如H2 数据库引擎就支持。</section>
+ 		</i>
+ 		<i>
+ 			<section>2.还要避免使用解释程序，因为这正是黑客们借以执行非法命令的手段。</section>
+ 		</i>
+ 		<i>
+ 			<section>3.防范SQL注入，还要避免出现一些详细的错误消息，因为黑客们可以利用这些消息。要使用一种标准的输入确认机制来验证所有的输入数据的长度、类型、语句、企业规则等。</section>
+ 		</i>
+ 		<i>
+ 			<section>4.使用专业的漏洞扫描工具。但防御SQL注入攻击也是不够的。攻击者们目前正在自动搜索攻击目标并实施攻击。其技术甚至可以轻易地被应用于其它的Web架构中的漏洞。企业应当投资于一些专业的漏洞扫描工具，如大名鼎鼎的Acunetix的Web漏洞扫描程序等。一个完善的漏洞扫描程序不同于网络扫描程序，它专门查找网站上的SQL注入式漏洞。最新的漏洞扫描程序可以查找最新发现的漏洞。</section>
+ 		</i>
+ 		<i>
+ 			<section>5.最后一点，企业要在Web应用程序开发过程的所有阶段实施代码的安全检查。首先，要在部署Web应用之前实施安全测试，这种措施的意义比以前更大、更深远。企业还应当在部署之后用漏洞扫描工具和站点监视工具对网站进行测试。</section>
+ 		</i>
+ 		<i>
+ 			<section>参考资料：www.csdn.net</section>
+ 		</i>
+ 
+     </article> 
+    <topic>
+    	<id>5</id>
+    	<name>热点技术(Hot Tech + Info)</name>
+    </topic>
+  </m>
+</b>
+

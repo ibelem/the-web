@@ -1,0 +1,37 @@
+﻿body {
+	margin: 0px auto;  
+	font-family: 微软雅黑, "MS Yahei", helvetica, sans-serif; 
+	background-color:#fff;
+	text-align:center;
+	color:#999;
+	text-shadow: 1px 1px 1px rgba(180,180,180, 0.1);
+}
+
+#wrap {
+	margin: 0px 4px;
+}
+
+#header {
+	margin: 6px auto; 
+	color:#666;
+}
+
+a:link, a:visited, a:active {
+	color:#000;
+	text-decoration:none;
+}
+
+a:hover {
+	background-color:#000; color:#fff;
+}
+#content {
+	margin: 4px auto; 
+	color:#aaa;
+	text-align:left;
+	padding: 0px 10px;
+}
+#footer {
+	text-align: center; margin: 8px auto;	
+	color:#666;
+}
+ 

@@ -1,0 +1,538 @@
+\documentclass[12pt,twoside]{cctart}
+\pagestyle{myheadings}
+\textwidth=14truecm
+\textheight=21truecm
+\oddsidemargin=0mm
+\evensidemargin=0mm
+\usepackage{amssymb,amsmath}
+\headheight=10mm
+\headsep=3mm
+\topmargin=0mm
+\begin{document}
+
+\font\sjldx=sjldx
+\markboth{\sjldx\char0\quad\char1\quad\char2\quad\char3}{本科生论文}
+
+\def\dfrac{\displaystyle\frac}
+
+\let\oldsection\section
+\renewcommand\section{\setcounter{equation}{0}\oldsection}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\theequation{\thesection.\arabic{equation}}
+\newtheorem{theorem}{\indent定理}[section]
+\newtheorem{lemma}{\indent引理}[section]
+\newtheorem{proposition}{\indent命题}[section]
+\newtheorem{definition}{\indent定义}[section]
+\newtheorem{remark}{\indent注}[section]
+\newtheorem{corollary}{\indent推论}[section]
+
+\title{\LARGE\heiti
+周期有孔区域上的二次增长
+\\
+椭圆型方程的齐次化问题
+\\
+:无界解的情形
+\thanks{
+数学分类号码: 35B27 35J25 }
+\\
+\author{张敏
+\\
+(吉林大学数学科学学院)}
+}
+\date{}
+
+\maketitle
+
+
+\begin{abstract}
+\fangsong
+本文考虑如下非线性问题的齐次化
+$$
+\left\{
+\begin{aligned}
+&-\hbox{div }\left(A\left(\frac{x}{\varepsilon}\right)Du_\varepsilon\right)
++H\left(\frac{x}{\varepsilon},u_\varepsilon,Du_\varepsilon\right)=f,
+&&\hbox{在 }\Omega_\varepsilon\hbox{内 },
+\\
+&\left(A\left(\frac{x}{\varepsilon}\right)Du_\varepsilon\right)\underline{\mu}=0,
+&&\hbox{在 }\partial T_{\varepsilon}\hbox{上 },
+\\
+&u_\varepsilon=0,
+&&\hbox{在 }\partial\Omega\hbox{上 },
+\\
+&u_\varepsilon\in H^{1}(\Omega_{\varepsilon}),
+\quad H\left(\frac{x}{\varepsilon},u_\varepsilon,Du_\varepsilon\right)\in L^{1}(\Omega_{\varepsilon}),
+~H\Big(\frac{x}{\varepsilon},u_\varepsilon
+,Du_\varepsilon\Big)u_\varepsilon&&\in L^{1}(\Omega_{\varepsilon}),
+\end{aligned}\right.
+$$
+其中$\Omega_{\varepsilon}=\Omega-T_{\varepsilon}$, $\Omega\in\mathbb{R}^n$为有界开集,
+$T_\varepsilon\in{\mathbb R}^n$为以$\varepsilon$为周期的闭球.
+$H(y,s,\xi)$关于$y$以$]0,1[^{n}$为周期,和$s$有相同的符号,关于$\xi$二次增长并且$f$属于$L_2(\Omega)$.
+(对应的关于有界解的问题已经由P. Donato, A. Gaudiello和L. Sgambati在[11]中论述了).
+
+我们证明了线性部分给出了该线性部分的齐次化矩阵, 非线性的部分变换为$H^{0}(u,Du)$,其中$H^{0}$是由
+$$
+H^{0}(s,\xi)=\int_{]0,1[^{n}-\overline{T}}H(y,s,C(y)\xi)d_y,
+\quad\quad \forall(s,\xi)\in\mathbb{R}\times\mathbb{R}^n
+$$
+定义的,$c(\frac{x}{\varepsilon})$为线性问题的校正矩阵,T为参考点.
+\end{abstract}
+
+\songti
+
+\section{引言}
+
+
+本文主要研究当$\varepsilon$趋近于0时
+$$
+\left\{
+\begin{aligned}
+&-\hbox{div }\left(A\left(\frac{x}{\varepsilon}\right)Du_\varepsilon\right)
++H\left(\frac{x}{\varepsilon},u_\varepsilon,Du_\varepsilon\right)=f,
+&&\qquad\hbox{在 }\Omega_\varepsilon\hbox{内 },
+\\
+&\left(A\left(\frac{x}{\varepsilon}\right)Du_\varepsilon\right)\underline{\mu}=0,
+&&\qquad\hbox{在 }\partial T_{\varepsilon}\hbox{上 },
+\\
+&u_\varepsilon=0,
+&&\qquad\hbox{在 }\partial\Omega\hbox{上 },
+\\
+&u_\varepsilon\in H^{1}(\Omega_{\varepsilon}),
+\quad H\left(\frac{x}{\varepsilon},u_\varepsilon,Du_\varepsilon\right)\in L^{1}(\Omega_{\varepsilon}),
+&& H\left(\frac{x}{\varepsilon},u_\varepsilon,Du_\varepsilon\right)u_\varepsilon\in
+L^{1}(\Omega_{\varepsilon}),
+\end{aligned}\right.
+\eqno(0.1)
+$$
+的解$u_\varepsilon$的渐进状态,其中$\Omega\in\mathbb{R}^n$为有界开集,
+$\Omega_{\varepsilon}=\Omega-T_{\varepsilon}$,
+$T_\varepsilon\in{\mathbb R}^n$为以$\varepsilon$为周期的闭球. A(y)是以]0,1$
+[^n$为周期的有界正定矩阵, $H(y,s,\xi)$是定义在$\mathbb{R}^n\times\mathbb{R}\times\mathbb{R}^n$
+上的Caratheodory函数,关于y以$]0,1[^n$为周期,和s有相同的符号, 关于$\xi$二次增长
+(参见假设(1.7)-(1.10)), f属于$L^2$($\Omega)$且$\underline\mu$表示$\Omega_\varepsilon$的单位外法向量.
+
+
+对于由数列$\{\varepsilon\}$决定的一类扩张算子$\{P_\varepsilon\}_\varepsilon$, 在定理1.3中我们证明了
+当$\varepsilon$趋近于0时,
+$$
+P_\varepsilon u_\varepsilon\rightharpoonup u,
+\qquad\hbox{于 }H_0^1(\Omega),              
+$$
+并且
+$$
+\left\{
+\begin{aligned}
+&-\hbox{div }(A^0Du)+H^0(u,Du)=\theta f, 
+\qquad\hbox{在 }\Omega\hbox{内 },
+\\
+&u\in H_0^{1}(\Omega),\quad H^0(u,Du)\in L^{1}(\Omega),
+\quad H^0(u,Du)u\in L^{1}(\Omega).
+\end{aligned}\right.
+$$
+其中$-\hbox{div}(A^{0}Du)$为线性部分的齐次化算子,$H^{0}$由
+$$
+H^{0}(s,\xi)=\int_{]0,1[^{n}-\overline{T}}H(y,s,C(y)\xi)d_y 
+\quad\quad  \forall(s,\xi)\in\mathbb{R}\times\mathbb{R}^n 
+$$
+定义,$C(\frac{\cdot}{\varepsilon})$为线性问题的校正矩阵,$T\subset\subset
+]0,1[^{n}$为参考点且$\theta=|]0,1[^{n}-T|$.
+
+关于${H}$-收敛和校正的一般记号已经在[13]中由F.Murat和L.Tartar介绍了. 为了研究有孔域的情形
+我们还要借鉴[7]和[8].
+
+扩张算子已经在[9]中由D.Cioranescu和J.Saint Jean Paulin介绍了.
+
+本文完善了[11]的结果. 在[11]中作者研究了类似于(0.1)问题的齐次化, 而其中$u_\varepsilon$是有界的, 
+且对${H}$无符号限制. 在本文中我们强调了主要的区别, 并保留了[11]中涉及的公共部分.
+
+在固定区域上, 梯度具二次增长的非线性问题的齐次化已由A. Bensoussan,
+L. Boccardo, A. Dall'Aglio和F.
+Murat在[2]中分有界和无界两种情形作了论述. 此外梯度具次二次增长非线性问题的齐次化也已由L.
+Boccardo and T. Del Vecchio在[4]中针对固定区域及P. Donato and L.
+Sgambati在[12]中针对周期有孔区域作了研究.
+
+本文借鉴了[2]中针对固定区域情形进行研究的思想, 部分的发展了[11]中在有孔区域中问题的结果.
+主要结论的证明是基于验证非线性问题的校正与相应的线性问题是一致的.
+
+关于齐次化理论研究上的一些细节问题可参见[1][3][10]和[14].
+
+\vskip1cm
+
+\textbf{内容}:
+
+1.  问题的提出和主要结论.
+
+2.  一个校正结论.
+
+3.  定理1.3的证明.
+
+\quad
+
+\vskip1cm
+
+\textbf{1-  问题的提出和主要结论}
+
+\quad
+
+令$\Omega$为$\mathbb{R}^{n}$的一个有界开子集,$n\geq2$,有光滑边界
+$\partial\Omega,{Y}=]0,1[^{n}$为参考单元,${T}\subset\subset{Y}$为具有光滑边界$\partial
+{T}$的开子集, 且$0<\varepsilon\rightarrow0$.
+
+假设对任意$\varepsilon$存在一个${Z}^{n}$上的子集${K}_\varepsilon$使得:
+$$
+\Omega\cap\bigcup\limits_{{k}\in{Z}^{n}}\varepsilon(k+\bar{{T}})=
+\bigcup\limits_{{k}\in{K}^{n}}\varepsilon(k+\bar{{T}}).
+$$
+则对任意的$\varepsilon$, 可定义有孔区域$\Omega_\varepsilon$如下:
+$$
+T_\varepsilon=\bigcup\limits_{k\in K^{n}}\varepsilon(k+\bar{T}),\quad
+\Omega_\varepsilon=\Omega-{T}_\varepsilon.
+$$
+我们引进空间
+$$
+{V}_\varepsilon=\{v\in
+{H}^{1}(\Omega_\varepsilon):v|_{\partial\Omega}=0\}
+$$
+具${H}^{1}$范数.
+
+下面我们设
+
+$\bullet
+\chi_{E}$为$\mathbb{R}^{n}$上一个子集${E}$的特征函数.
+
+$\bullet|{E}|$为$\mathbb{R}^{n}$上一个Lebesgue可测集${E}$的Lebesgue测度.
+
+$\bullet\tilde{v}$
+或$v\hskip1mm{\tilde { }}$为定义在$\Omega_\varepsilon$上任意(向量)函数$v$在$\Omega$上的0扩张.
+
+$\bullet
+\underline{\mu}$依据情况为关于${Y}-{T}$或$\Omega_\varepsilon$的单位外法向量.
+
+此外我们已知,当$\varepsilon$趋近于0时
+$$
+\chi_{\Omega_\varepsilon}\rightharpoonup\theta=|{Y}-{T}|
+\qquad\hbox{在 }{L}^{\infty}(\Omega)\hbox{上弱 }*.  
+\eqno{(1.1)}
+$$
+
+对任意的$\varepsilon$, 我们现在介绍一个关于线性扩张算子的序列$\{{P}_\varepsilon\}_\varepsilon$,
+$$
+\left\{
+\begin{aligned}
+&{P}_\varepsilon\in\zeta({V}_\varepsilon,{H}^{1}_0(\Omega)),
+\\
+&({P}_\varepsilon v)|\Omega_\varepsilon=v 
+\quad \forall v\in {V}_\varepsilon,
+\\
+&||{D}({P}_\varepsilon v)||_{({L}^{2}(\Omega))^{n}}\leq
+{c}||{D}v||_{({L}^{2}(\Omega))^{n}}
+\quad\forall v\in {V}_\varepsilon,
+\\
+&\quad\hbox{其中 }{c}\hbox{是不依赖于}\varepsilon\hbox{的常数}
+\end{aligned}\right.
+\eqno(1.2)
+$$
+且对于${H}^{-1}(\Omega)$中任意${g}$,类似于[12]我们定义$V'_\varepsilon$内的$P^{*}_\varepsilon{g}$如下:
+$$
+P^{*}_\varepsilon{g}:v\in V_\varepsilon\rightharpoonup
+\langle g,P_\varepsilon
+v\rangle_{{H}^{-1}(\Omega),{H}^{1}_{0}(\Omega)}\in
+\mathbb{R}^{n}.
+\eqno(1.3)
+$$
+\vskip1cm
+
+\textbf{注 1.1.}
+序列$\{P_\varepsilon\}_\varepsilon$的存在性在[9]中令人满意地(1.2)证明了.
+此外,(1.2)提供了在${V}_\varepsilon$中独立于$\varepsilon$的常数的Poincare及Sobolev不等式.
+
+令${A}({y})=({a}_{{ij}}({y}))_{{ij}}$为定义在$\mathbb{R}^{n}$上的一$n\times
+n$矩阵值函数如下:
+$$
+\left\{
+\begin{aligned}
+&{A}\in({L}^{\infty}(\mathbb{R}^{n}))^{n^{2}},
+\\
+&{A} \quad\hbox{以 }{A}\hbox{为周期 },
+\\
+&\exists\alpha>0:\sum\limits_{{i},{j}=1}^{n}a_{ij}({y})\lambda_i\lambda_j\geq\alpha|\lambda|^{2},
+&&\qquad \hbox{几乎处处在 }\mathbb{R}^{n} \quad\lambda\in\mathbb{R}^{n}
+\end{aligned}\right.
+\eqno{(1.4)}
+$$
+对于任意$\varepsilon$我们有:
+$$
+{A}^{\varepsilon}({x})={A}(\frac{{x}}{\varepsilon}),
+\quad\quad \hbox{几乎处处在 }\mathbb{R}^{n}.
+\eqno(1.5)
+$$
+此外对于$\mathbb{R}^{n}$内的${y}$我们给出定义在
+$\mathbb{R}^{n}\times\mathbb{R}\times\mathbb{R}^{n}$上的Caratheodory函数${H}$,
+对于$\mathbb{R}^{n}$内任意${s}$和$\bar{{s}}$以及$\xi$和$\bar{\xi}$:
+$$
+\quad |{H}({y},{s},\xi)|\leq
+b_{2}(|{s}|)(1+|\xi|^{2}),
+\eqno{(1.6)}
+$$
+$$
+\quad |{H}({y},{s},\xi)-{H}({y},{s},\bar{\xi})|
+\leq b_{1}(|{s}|)(1+|\xi|+|\bar{\xi}|)|\xi-\bar{\xi}|,
+\eqno{(1.7)}
+$$
+$$
+\quad |{H}({y},{s},\xi)-{H}({y},\bar{{s}},\xi)|
+\leq b_{2}(|{s}-\bar{{s}}|)(1+|\xi|^{2}),
+\eqno{(1.8)}
+$$
+$$
+\quad {H}({y},{s},\xi){s}\geq0,
+\eqno{(1.9)}
+$$
+$$
+\quad {H}(\cdot,{s},\xi) \quad
+\hbox{以 }{Y}\hbox{为周期 },
+\eqno{(1.10)}
+$$
+
+其中${b}_1$和${b}_2$为${b}_{1}(0)\geq0$和${b}_{2}(0)=0$的连续递增函数.
+
+\vskip1cm
+
+\textbf{注 1.2.}
+注意到(1.6)以及从(1.8)到(1.9),由$\mathbb{R}^{n}$内${H}(y,\cdot
+,\xi)$的连续性, 对任意的$\varepsilon$,设
+$$
+\quad {H}_\varepsilon(\cdot,{s},\xi)={H}(\frac{x}{\varepsilon},{s},\xi),\quad
+ {x} \quad\hbox{a.e.于 }\mathbb{R}^{n} \hbox{内 },\quad
+ \forall({s},\xi)\in\mathbb{R}\times\mathbb{R}^{n} .
+\eqno{(1.11)}
+$$
+在这篇文章里我们研究了当$\varepsilon$趋近于0时渐进状态有关如下问题的解$u_\varepsilon$:
+$$\quad 
+\left\{
+\begin{aligned}
+&\int_{\Omega_{\varepsilon}}{A}^{\varepsilon}{D}u_{\varepsilon}{D}v
+{dx}+\int_{\Omega_{\varepsilon}}H(\frac{x}{\varepsilon},u_\varepsilon,Du_\varepsilon)
+v{dx}=\int_{\Omega_{\varepsilon}}{f}v
+{dx}  \quad
+\forall\nu\in{V}_\varepsilon\cap{L}^{\infty}(\Omega_{\varepsilon}),
+\\
+&u_\varepsilon\in
+H^{1}(\Omega_{\varepsilon}),H(\frac{x}{\varepsilon},u_\varepsilon,Du_\varepsilon)\in
+L^{1}(\Omega_{\varepsilon}),H(\frac{x}{\varepsilon},u_\varepsilon,Du_\varepsilon)u_\varepsilon\in
+L^{1}(\Omega_{\varepsilon}),
+\end{aligned}\right.
+\eqno{(1.12)}
+$$
+${f}$在$L^{2}(\Omega)$内.
+
+\quad
+
+下面由[4][5]的结果,很容易地证明问题(1.2)存在的一个解$u_\varepsilon$,
+此外[6]表达了能够用来作为(1.2)中检验函数的的任意解.然后,在
+(1.12)中取$v=u_\varepsilon$且由(1.4)和(1.9),我们得到如下的先验估计:
+$$
+ \quad ||u_\varepsilon||_{H^{1}(\Omega)}\leq
+{c}_{1},
+\eqno{(1.13)}
+$$
+$$
+\quad 
+\int_{\Omega_{\varepsilon}}H({x},u_\varepsilon,D\mu_\varepsilon)u_{\varepsilon}{dx}\leq
+{c}_{1},
+\eqno{(1.14)}
+$$
+其中${c}_1$是独立于$\varepsilon$的正常数.
+
+由(1.2)和(1.13)的结论我们推出:当$\varepsilon$趋近于0时,对一些任意的子列(仍然是指\{$\varepsilon$\}),
+$$
+\left\{
+\begin{aligned}
+&P_{\varepsilon}u_\varepsilon\rightharpoonup u
+&&\qquad \hbox{在 }{H}^{1}_{0}(\Omega) \hbox{内弱 }
+\\
+&P_{\varepsilon}u_\varepsilon\rightarrow u 
+&&\qquad \hbox{在 }{L}^{1}_{0}(\Omega)\hbox{内强 }
+\\
+&P_{\varepsilon}u_\varepsilon\rightarrow u 
+&&\qquad \hbox{几乎处处在 }\Omega\hbox{内 }
+\end{aligned}\right.
+\eqno{(1.15)}
+$$
+为了描述满足的u的问题,我们通过n$\times$n矩阵值函数
+${A}^{0}=({a}^{0}_{{ij}}){{ij}}$以及${C}({y})=({c}_{{ij}}({y}))_{{ij}}$,由
+$$
+ \quad
+{a}^{0}_{ij}=\int_{{Y}-\bar{{T}}}{a}_{{ij}}({y})-\Sigma^{n}_{{k}=1}{a}_{{ik}}({y})
+\frac{\partial\chi_{j}}{\partial
+{y}_{k}}{dy}, 
+\eqno{(1.16)}
+$$
+和
+$$
+ \quad
+{c}_{{ij}}({y})=\delta_{{ij}}
+-\frac{\partial\chi_{j}}{\partial {y}_{k}} \quad
+\hbox{a.e.于 } {Y}-{T},
+\eqno{(1.17)}
+$$
+个别的定义,$\chi_j$解的项,${j}=1,...,{n}$,关于
+$$
+\left\{
+\begin{aligned}
+&-div({A}({y}){D}({y}_{i}-\chi_{j}))=0
+&&\qquad \hbox{在 }{Y}-\bar{{T}}\hbox{内 },
+\\
+&({A}({y}){D}({y}_{i}-\chi_{j}))\cdot\underline{\mu}=0
+&&\qquad \hbox{在 }\partial{T} \hbox{内 },
+\\
+&\chi_{j}\quad  \hbox{以 }{Y} \hbox{为周期 },
+\end{aligned}\right.
+\eqno{(1.18)}
+$$
+其中${A}({y})=({a}_{ij}({y}))_{{ij}}$在(1.4)中给出.
+
+则我们设
+$$
+{H}^{0}({s},\xi)=\int_{{Y}-\bar{{T}}}{H}({y},{s},{C}({y})\xi){dy}
+\quad\quad \forall
+({s},\xi)\in\mathbb{R}\times\mathbb{R}^{n},
+\eqno{(1.19)}
+$$
+其中${H}$是满足(1.7)-(1.10)的Caratheodory函数.
+
+\quad
+
+现在我们可以在文章中论述主要结果了.
+
+\vskip1cm
+
+\textbf{定理 1.3.
+}令$\{{A}_\varepsilon\}_\varepsilon$为由(1.5)定义的${n}\times{n}$矩阵值函数列,
+$\{{H}_\varepsilon\}_\varepsilon$为在(1.7)-(1.10)以及关于(1.12)解序列
+$\{u_\varepsilon\}_\varepsilon$的假设下定义的Caratheodory函数列.
+
+令$\{{P}_\varepsilon\}_\varepsilon$为满足(1.2)的线性扩张算子序列,
+${A}^{0}$为(1.16)定义的${n}\times{n}$矩阵,
+${H}^{0}$函数在(1.16)中给出,且${\theta}=|{Y}-{T}|$.
+
+则存在一子列(仍指$\{\varepsilon\}$),且在${H}^{1}_{0}
+(\Omega)$中的一函数u在$\varepsilon$趋近于0时,
+$$
+\quad
+P_{\varepsilon}u_\varepsilon\rightharpoonup u
+\quad \hbox{在 }{H}^{1}_{0}(\Omega)\hbox{内弱 }.
+\eqno{(1.20)}
+$$
+函数u满足如下方程组:
+$$
+\left\{
+\begin{aligned}
+&\int_{\Omega}{A}^{0}{D}u_{\varepsilon}{D}v
+{dx}+\int_{\Omega}H^{0}(u,Du)v{dx}=\int_{\Omega}\theta{f}v
+{dx},  
+\qquad\forall v\in{H}^{1}_0\cap{L}^{\infty}(\Omega),
+\\
+&u_\varepsilon\in H^{1}_{0}(\Omega),\quad H^{0}(u,Du)\in
+L^{1}(\Omega),
+\quad H^{0}(u,Du)u\in L^{1}(\Omega),
+\\
+&\int_{\Omega}{A}^{0}{D}u_{\varepsilon}{D}u
+{dx}+\int_{\Omega}H^{0}(u,Du)u{dx}=\int_{\Omega}\theta{f}u
+{dx}.
+\end{aligned}\right.
+\eqno{(1.21)}
+$$
+此外当$\varepsilon$趋近于0时,保持如下收敛:
+$$
+-div({A}^{\varepsilon}({x})({D}u_\varepsilon)~)\rightarrow
+-div({A}^{0}({D}u)
+\quad\hbox{在 }{H}^{-1}(\Omega)\hbox{内强 }.
+\eqno{(1.22)}
+$$
+$$
+H_\varepsilon(x,u_\varepsilon,Du_\varepsilon)~\rightharpoonup
+H^{0}(u,Du) \quad \hbox{在 }{L}^{1}(\Omega)\hbox{内弱 }.
+\eqno{(1.23)}
+$$
+定理(1.3)的证明有和[11]中定理(1.3)相同的结果.因此我们应该给
+出一个关于主要区别,参见[11]中为了保持公共部分的细节性证明.
+
+\vskip1cm
+
+\textbf{注 1.4.} 函数
+$$
+{H}({y},{s},\xi)=({h}({y})+|\xi|^{2}){g}({s}),
+\quad \quad {y} \hbox{a.e.于 }\mathbb{R}^{n}\hbox{内 },\quad
+\forall(s,\xi)\in\mathbb{R}\times\mathbb{R}^{n},
+$$
+${h}$为正有界可测以${Y}$为周期的函数,${g}$为$\mathbb{R}$上递增的Lipschitz连续函数,${g}(0)=0$
+(例如${g}({s})=arctg({s})$),满足假设(1.6)-(1.10).则,
+$$
+{H}^{0}({s},\xi)={g}({s})\int_{{Y}-\bar{{T}}}({H}({y})+|{C}({y})\xi|^{2}){dy}
+\quad\quad \forall
+({s},\xi)\in\mathbb{R}\times\mathbb{R}^{n},
+$$
+
+\vskip1cm
+\section*{参考文献}
+
+\begin{description}
+\item{1.} H.~Attouch, \it Variational convergence for functions and
+operators, \rm Applicable Mathematics Series, Pitman, London, 1984.
+
+\item{2.} A.~Bensoussan, L.~Boccardo, A.~Dallaglio and F.~Murat,
+\it H-convergence for quasi-linear elliptic equations under
+natural hypotheses on the correctors, \rm Proceedings of the
+conference "Composite media and homogenization theory" held in
+Trieste, September, 1993.
+
+\item{3.} A.~Bensoussan, J.~P.~Lions and G.~Panicolaou, \it
+{Asymptotic analysis for periodic structures}, \rm North Holland,
+Amsterdam, 1978.
+
+\item{4.} L.~Boccardo and T.~Del Vecchio, Homogenization of strongly
+nonlinear equations with gradient dependent lower order
+nonlinearity, \it Asymp. Anal., \rm 5 (1991), 75-90.
+
+\item{5.} L.~Boccardo, F.~Murat, and J.~P.~Puel, Existence de solutions non bornees
+pour certaines equations quasi-lineaires, \it Portugaliae Math., \rm 41 (1982), 507-534.
+
+\item{6.} H.~Brezis, and F.~E.~Browder, Some properties of higher order Sobolev spaces,
+\it J. Math. Pures Appl., \rm61 (1982), 245-259.
+
+\item{7.} M.~Briane, A.~Damlamian, and P. ~Donato, \it H-convergence for perforated
+domains, \rm College de France Seminar (Brezis \& J.L. Lions, eds.), Research Notes in
+Mathematics, Longman, London, to appear.
+
+\item{8.} D.~Cioranescu, and F.~Murat,  \it Un terme etrange venu d'ailleurs, \rm Nonlinear
+Partial Dierenzial Equations and their Applications, College de France Seminar,
+Vol. II and III (Brezis \& J.L. Lions, eds.), Research Notes in Mathematics 60 \&
+70, Pitman, London (1982), p.98-138 \& p.154-178.
+
+\item{9.} D.~Cioranescu, and J.~Saint Jean Paulin, Homogenization in open sets
+with holes, \it J. Math. Anal. and Appl., \rm 71 (1979), 590-607.
+
+\item{10.} G.~Dal Maso, \it An introduction to $\Gamma$-convergence, \rm Birkhauser, Boston, 1993.
+
+\item{11.} P.~Donato, A.~Gaudiello, and L.~Sgambati, \it Homogenization of bounded solutions of 
+elliptic equations with quadratic growth in periodically perforated domains, \rm Preprint of the 
+Laboratoire d'Analyse Numerique of the University Paris
+VI, n.R94030, 1995. Asymptotic Analysis, to appear.
+
+\item{12.} P.~Donato, and L.~Sgambati, Homogenization of some nonlinear problems in
+perforated domains, \it Revista de Matematicas Aplicadas, \rm 15(1) (1994), 17-38.
+
+\item{13.} L.~Tartar,  \it Cours Peccot, College de France (March 1977). \rm Partially written in
+F. Murat, \H-convergence", Seminaire d'Analyse Fonctionnelle et Numerique de
+l'Universite d'Alger (1977-78). English translation in "Mathematical Modelling of
+Composite Materials" (R.V. Kohn, ed.), Progress in Nonlinear Dierential Equations and their 
+Applications, Birkhauser, Boston, 1994.
+
+\item{14.} E.~Sanchez-Palencia, \it Non-homogeneous media and vibration theory, \rm Lecture
+Notes in Physics 127, Springer, Berlin, 1980.
+
+\end{description}
+
+\end{document}

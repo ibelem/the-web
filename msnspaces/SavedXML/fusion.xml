@@ -1,0 +1,76 @@
+    <Style Alias="Fusion" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://spaces.microsoft.com/namespaces/Style.xsd">
+      <BackGround>
+        <Color>
+          <SpaceHeaderBG>20001D</SpaceHeaderBG>
+          <AdSectionBG />
+          <FooterBG />
+          <OuterBodyBG>20001D</OuterBodyBG>
+          <InnerBodyBG>1F011D</InnerBodyBG>
+          <SecondarySelTab>20001D</SecondarySelTab>
+          <PartNavbarBG>7F2381</PartNavbarBG>
+          <AltListItemBG>7F2381</AltListItemBG>
+          <BlogEntryBG>7F2381</BlogEntryBG>
+          <PartBG>841E76</PartBG>
+          <SettingsHeaderBG>A13E93</SettingsHeaderBG>
+          <SaveRow>7F2381</SaveRow>
+          <BlogEntryNormalTab>943386</BlogEntryNormalTab>
+          <FirstLevelNav>20001D</FirstLevelNav>
+          <SecondaryNav>943386</SecondaryNav>
+          <PartsHeader>FFCF45</PartsHeader>
+          <BlogSectionTitleBG>1F011D</BlogSectionTitleBG>
+        </Color>
+        <Image>
+          <BodyBGImage BackgroundPosition="" BackgroundRepeat="" />
+          <InnerBodyBGImage BackgroundPosition="" BackgroundRepeat="repeat-y" Transparency="">bkg.jpg</InnerBodyBGImage>
+          <SpacesHeaderBGImage BackgroundPosition="" BackgroundRepeat="repeat-x">header.gif</SpacesHeaderBGImage>
+          <PartsBGImage BackgroundPosition="" BackgroundRepeat="" />
+          <NavBGImage BackgroundPosition="" BackgroundRepeat="" />
+          <PartsHeaderImage BackgroundPosition="" BackgroundRepeat="repeat-x">mid-grad.gif</PartsHeaderImage>
+        </Image>
+      </BackGround>
+      <TextColor>
+        <FooterFontColor>FFCF45</FooterFontColor>
+        <HeaderFontColor>FFCF45</HeaderFontColor>
+        <AdsFontColor>FFCF45</AdsFontColor>
+        <FirstLevelNavFontColor>FFCF45</FirstLevelNavFontColor>
+        <SecondaryNavFontColor>FFCF45</SecondaryNavFontColor>
+        <SecondarySelTabFontColor>FFCF45</SecondarySelTabFontColor>
+        <LinkAndListBullet>FFCF45</LinkAndListBullet>
+        <MemberProfileEditLink>FFFFFF</MemberProfileEditLink>
+        <ContentFontColor>FFFFFF</ContentFontColor>
+        <PartHeaderFontColor>841E76</PartHeaderFontColor>
+        <PartNavbarFontColor>FFCF45</PartNavbarFontColor>
+        <ColumnHeaderFontColor>FFFFFF</ColumnHeaderFontColor>
+        <PartSubheaderFontColor />
+        <BlogEntrySelTabFontColor />
+        <BlogEntryNormalTabFontColor />
+        <SettingsHeaderFontColor />
+        <BlogSectionTitleFontColor>841E76</BlogSectionTitleFontColor>
+        <BlogSectionTitleLinkFontColor />
+      </TextColor>
+      <BorderStyle>
+        <BorderStyle1>1px solid #380136</BorderStyle1>
+        <BorderStyle2>1px solid #380136</BorderStyle2>
+        <BorderStyle3>1px solid #380136</BorderStyle3>
+        <BorderStyle4>1px solid #380136</BorderStyle4>
+        <SharkfinLine>1px solid #2680B4</SharkfinLine>
+        <SettingsHeader>5px solid #943386</SettingsHeader>
+        <CascadeSettingsHeader>20px solid #943386</CascadeSettingsHeader>
+        <PartsBorder>1px solid #3B0136</PartsBorder>
+        <InnerListBorder>1px solid #3B0136</InnerListBorder>
+        <MainNavTopLine>1px solid #943386</MainNavTopLine>
+      </BorderStyle>
+      <ContactCard>
+        <TitleBarBackground>C16EB8</TitleBarBackground>
+        <TitleBarForeground>000000</TitleBarForeground>
+        <TitleBarFontFace />
+        <ClientAreaBackground>f8f8f8,fcf2fb</ClientAreaBackground>
+        <ClientAreaForeground>000075</ClientAreaForeground>
+        <ClientAreaFontFace />
+        <ClientAreaBackgroundImage>Fusion_card_bkgd.gif</ClientAreaBackgroundImage>
+        <ToolBarBackground>c16eb8,FCF2FB</ToolBarBackground>
+        <ToolBarForeground>000000</ToolBarForeground>
+        <ToolBarFontFace />
+        <BorderColor>A23F91</BorderColor>
+      </ContactCard>
+    </Style>

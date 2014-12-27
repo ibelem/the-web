@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="../../xsl/200807.xsl" ?>
+<b>
+  <e>博彦培训月刊</e>
+  <l>第二期</l>
+  <e2> 2008.07.10</e2>
+  <m>
+    <title>Developer Versioning: Which Version are You?</title>
+    <author>
+    	<name>徐桢</name>
+    	<intro>特别关注 (Special Focus) 板块责编. 软件园3楼里屋进门左手侧红色柱子下.</intro>
+    	<email>v-zhenx@microsoft.com / xuzhen@beyondsoft.com</email>
+		<other>MSN: msnalucard@hotmail.com / QQ: 270106429</other>
+		<img>xuzhen.jpg</img>
+    </author>
+    <article>
+    	<i>
+    		<section>I was thinking about the level of programming abilities lately, as we are starting to interview for an open position. I thought, "Wouldn't it be nice if programmers came in version numbers like software?" This would make it easy to say, I need a version 3 programmer with abilities in languages A, B and C. It's so difficult to say Mid-Level developer, because mid-level is so subjective. Mid between WHO? So here are my thoughts of what the versions for a web programmer might be:</section>
+		</i>
+ 		<i>
+ 			<section>Alpha: Has read some books and has put together some web sites for friends (mostly using Dreamweaver or FrontPage), but the quality is such that you probably would be leery about hiring them professionally until they learn how to hand-code some HTML.</section>
+ 		</i>
+ 		<i>
+ 			<section>Beta: Is getting better at putting together sites and has some skill with HTML; but still uses tables for everything, and knows next to nothing about CSS. Still is intimidated by the thought of dynamic web sites or database</section>
+ 		</i>
+ 		<i>
+ 			<section>Pre Version 1 (0.1): Just a bit above Beta. Knows HTML and is starting to understand how CSS is supposed to work. Does some with JavaScript, but is still amateurish style. Starting to get into dynamic sites and how to connect to database. Still not someone you'd hire as a web developer for a professional team.</section>
+ 		</i>
+ 		<i>
+ 			<section>1.0: Can put together a web site. Will take the most direct route to every problem. Has no concept of scalability, extensibility or what's really going on "under the covers" of their favorite web design tools. Good entry-level developer. Needs lots of help and supervision.</section>
+ 		</i>
+ 		<i>
+ 			<section>2.0: Understands Object-Oriented development. Understands that there is a need for tiered development and separation of concerns. Tends to find more elegant solutions to problems and may, on occasion, use a design pattern, but has no concept of design patterns. Good junior developer. Can be let loose on coding things and may need some help finding a better solution to complicated problems.</section>
+ 		</i>
+ 		<i>
+ 			<section>3.0: Starting to understand object-oriented development and design patterns enough to see the use of them. Can even recognize a design pattern when they see one, but may not always be able to see a patterned solution to a problem. Starting to be able to architect solutions that have good separation of concerns and is testable. Knows a few different languages and WHY they are different (i.e. their best uses). Good mid-senior developer. Can easily be trusted to develop a solution and provide guidance to v1 and v2 developers. May still have trouble with more difficult architectural solutions but, with a little guidance, they understand and will remember the decisions they made and WHY for future projects.</section>
+ 		</i>
+ 		<i>
+ 			<section>4.0: Understands patterns and sees patterns within user stories. Starting to explore methodologies, architectures and approaches to  software development. Learning has begun to transcend language and technology. Constructs and deconstructs applications from their requirements in her head. Can see abstractly, how patterns fit together and how different x-driven designs can be applied to different situations. Is a decently versed Polyglot. Understands the nuances of different systems and methodologies. Good Senior programmer. Will easily be able to help v2 and v3 programmers to push themselves to the next level.</section>
+ 		</i>
+ 		<i>
+ 			<section>5.0: Thinks in terms of systems. Can still get down into the bowels of any system and rescue it from total code rot, but is much more valuable in making teams cohesive and preventing code rot. Can easily see when a v1-4 programmer might be starting to derail in their designs and can keep a team of developers motivated and excited about creating software solutions. Leads by example. Is always hungry for new and easier ways to accomplish development tasks. Can easily be trusted to run the entire IT department if they are required to. Good Senior Developer or Architect.</section>
+ 		</i>
+ 		<i>
+ 			<section>OK. So those are my thoughts. I didn't really edit these or spend a lot of time revising the definitions. Anyone got extras to add? changes to mine? I'd like to make this a group-think project. I know people have been trying to do this from the beginning of time. I have no delusions that this will become an ISO standard for identifying developer competency. But we should at least be thinking about it. What are YOUR versions? I want to challenges dev bloggers to write a blog about THEIR thoughts on developer versioning.</section>
+ 		</i>
+ 		<i>
+ 			<section>Translation of parts:</section>
+ 		</i>
+ 		<i>
+ 			<section>Alpha：阅读过一些专业书籍，大多数能用Dreamweaver或者FrontPage帮朋友制作一些Web页面。但在他们熟练掌握HTML代码以前，你大概不会雇佣他们成为职业的WEB制作人员。</section>
+ 		</i>
+ 		<i>
+ 			<section>Beta：已经比较擅长整合站点页面了，在HTML技巧方面也有一定造诣，但还是用Tables来制作页面，不了解CSS，在面对动态页面或数据库连接时还是底气不足。</section>
+ 		</i>
+ 		<i>
+ 			<section>Pre Version 1 (0.1)：比Beta版的开发者水平要高。熟悉HTML，开始了解CSS是如何运作的，懂一点JavaScript，但还是基于业余水准，逐步开始关心动态站点搭建和数据库连接的知识。这个版本的WEB开发人员还远不能成为雇主眼中的香饽饽。</section>
+ 		</i>
+ 		<i>
+ 			<section>1.0: 能够基本把控整个站点开发，针对每个问题尽可能的找到最直接的解决办法。但对可测性，可扩展性以及在不同(层)框架下如何选择最合适的WEB设计工具尚无概念。这个版本的WEB开发者有良好的技术基础，需要有进一步的帮助和指导。</section>
+ 		</i>
+ 		<i>
+ 			<section>2.0：懂面向对象的编程语言，理解分层开发的必要性，关注代码分离，对问题寻找更完美的解决方法，偶然也会考虑设计模式的问题，但对此仍然概念不清。属于优秀的初级开发者，能完成较松散的代码开发(相对大型严谨的站点开发而言)，在面对较复杂问题寻找解决办法时需要周边人的帮助。</section>
+ 		</i>
+ 		<i>
+ 			<section>3.0：开始较为深入的理解面向对象编程和设计模式，了解他们的用途，当看到好的设计模式时能看透其本质，逐步关注分层的架构解决办法和可测试性。理解不同的开发语言并能说出他们的异同(例如各自的优势)。属于优秀的中级别开发者，雇主也确信他们最终能找到问题的解决办法，这个版本的人可以给1.0和2.0的开发者以指导。但他们对架构的理解仍然不够清晰，值得一提的是，只要给予一些指导，他们能很快理解并熟记做出的决定，以及选定方案的优势所在。</section>
+ 		</i>
+		<i>
+			<section>4.0：理解模式，重视用户的反馈。着手研究方法论，架构设计和软件开发的最佳入口。头脑中已经形成了超越开发语言，技术架构的整体方案，可根据需求解构程序。能从理论的角度，不同模式如何融合成最佳形态，将多种X-驱动的模式应用到不同的方案中。是精通多语言的高手，理解不同系统和方法论的细微差别，属于高级程序员。这个级别的人能够轻易的辅导2.0和3.0的程序员，将他们推向更高的级别。</section>
+		</i>
+		<i>
+			<section>5.0：从系统的角度考虑问题。对各种系统结构有深入研究，能对整个代码架构中的问题进行改进。在团队粘合性以及代码安全性方面有杰出贡献。对1.0到4.0版本的开发人员出现的问题能及时察觉，让整个团队保持积极性且保持兴奋的状态创建软件解决办法。举例来说，他们总是对新的技术和信息保持饥渴状态，试图用最简便的方案解决开发任务。在整个IT团队中获得信任，属于高级程序员和架构师。</section>
+		</i>
+		<i>
+			<section>文章摘自：http://geekswithblogs.net/leesblog/Default.aspx</section>
+		</i>
+     </article> 
+    <topic>
+    	<id>4</id>
+    	<name>特别关注(Special Focus)</name>
+    </topic>
+  </m>
+</b>
+

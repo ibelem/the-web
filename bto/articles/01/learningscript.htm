@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>博彦培训月刊 - 第一期</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+<meta http-equiv="Content-Language" content="utf-8" />
+<meta name="robots" content="all" />
+<meta name="author" content="beyondsoft, 博彦科技" />
+<meta name="Copyright" content="Copyright (c) 2008 博彦培训月刊编辑社" />
+<meta name="description" content="博彦培训月刊" />
+<meta name="keywords" content="博彦培训月刊" />
+<link type="text/css" href="../../css/articles.css" media="all" rel="stylesheet" />
+<link type="text/css" href="../../css/nav.css" media="all" rel="stylesheet" />
+<style type="text/css">
+#authorImgnow_lyf {
+	height:64px;
+	width:64px;
+	background:#fff url('../../img/64_64/lyf.jpg') no-repeat;
+}
+</style>
+
+<script type="text/javascript" src="../../js/jquery-1.1.3.1.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.lavalamp.min.js"></script>
+<script type="text/javascript" src="../../js/wego.js"></script></head>
+
+<body>
+<div id="wrap">
+<div id="header">
+<div id="nav">
+<ul class="ui-tabs-nav" id="1">
+ 	<li><a href="../../default.htm" title="Home page">首 页</a></li>
+    <li><a href="../../articles.htm" title="Articles">存 档</a></li>
+    <li><a href="../../topics.htm" title="Topics">栏 目</a></li>
+    <li><a href="../../contribution.htm" title="Contribution">投 稿</a></li>
+    <li><a href="../../about.htm" title="About">关 于</a></li>
+</ul>
+</div>
+<div id="mNum">第一期 2008.06.10</div>
+<div id="logo"></div>
+</div>
+<div id="main">
+<div id="left">
+<div class="article">
+<div  id="learningscript">
+<div class="title">基于Windows API的Win 32 程序UI自动化测试</div>
+<div class="articleby">文/李云峰 </div>
+<div class="items">
+由于我们为微软的产品做测试，很多新人在学习自动化测试的时候，可能最先接触的是EHCO，KAF，RPF这样的微软提供的自动化测试工具或类库，在这些自动化测试类库的基础上我们很容易地写出我们需要的case，但是如果我们离开这些类库如何来写自动化case呢，我们在调用自动化类库的时候，他们在后台是如何操作来实现我们需要的功能呢？本文就是要介绍如何在C#的环境中调用Windows API进行Win32程序的UI测试，也就是我们不借助任何类库或工具的帮助，完全用我们自己的方法来写自动化case。</div><div class="items">
+既然是UI测试，那么我们首先想到的是要找到我们的目标程序的窗口，大家都知道在windows的操作系统上，每个窗口都是用一个句柄来标识的，所以我们的大致思路为取得被测程序主窗口的句柄，然后再找到程序窗体上的控件，对控件发送消息，从而实现模拟用户操作的目的。</div><div class="items">
+下面几个函数是我们需要用到的，大家可以先看下，如果需要更详细的资料可以查阅MSDN。</div>
+<div class="code">
+ShellExecute( <br/>
+HWND hwnd, <br/>
+LPCSTR lpOperation, <br/>
+LPCSTR lpFile, <br/>
+LPCSTR lpParameters, <br/>
+LPCSTR lpDirectory, <br/>
+INT nShowCmd <br/>
+)；<br/>
+</div>
+
+<div class="items">
+ShellExecute可以调用我们需要测试的build，这个函数的功能非常强大，还可以打开指定的Web地址或文件夹，有兴趣的朋友可以参看MSDN介绍。
+</div>
+<div class="code">
+HWND FindWindow<br/>
+(<br/>
+    LPCTSTR lpClassName,<br/>
+    LPCTSTR lpWindowName   <br/>      
+); 
+
+</div>
+<div class="items">
+FindWindow函数返回与指定字符创相匹配的窗口类名或窗口名的最顶层窗口的窗口句柄。这个函数不会查找子窗口。
+</div>
+<div class="code">
+HWND FindWindowEx<br/>
+(<br/>
+HWND hwndParent，<br/>
+HWND hwndChildAfter，<br/>
+LPCTSTR lpszClass，<br/>
+LPCTSTR lpszWindow<br/>
+); 
+
+</div>
+<div class="items">
+FindWindowEx函数获得一个窗口的句柄，该窗口的类名和窗口名与给定的字符串相匹配。这个函数查找子窗口，从排在给定的子窗口后面的下一个子窗口开始。在查找时不区分大小写。
+</div>
+<div class="code">
+BOOL PostMessage<br/>
+(<br/>
+
+HWND hWnd，<br/>
+
+UINT Msg，<br/>
+
+WPARAM wParam，<br/>
+
+LPARAM lParam<br/>
+
+);
+
+</div>
+<div class="items">
+函数将一个消息放入（寄送）到与指定窗口创建的线程相联系消息队列里，不等待线程处理消息就返回。
+</div>
+<div class="code">
+LRESULT SendMessage<br/>
+(<br/>
+HWND hWnd，<br/>
+UINT Msg，<br/>
+WPARAM wParam，<br/>
+LPARAM IParam<br/>
+);
+
+</div>
+<div class="items">
+SendMessage函数将指定的消息发送到一个或多个窗口。此函数为指定的窗口调用窗口程序，直到窗口程序处理完消息再返回。而与函数PostMessage不同，PostMessage是将一个消息寄送到一个线程的消息队列后立即返回。
+</div>
+
+<div class="items">
+函数都准备好了，但是毕竟在API出现的时候C#还不知道在什么地方学习呢，呵呵，所以我们在C#中使用windows API还是要多写两行代码。在C#中调用Windows API我们需要用到的C#中一种平台调用（P/Invoke）的.Net机制。 其位于System.Runtime.InteropServices名称空间内。如如果我们的程序使用了 using System.Runtime.InteropServices；语句后，就可以在我们的C#测试工程中用下面的语句来引用我们需要的Windows API函数：
+</div>
+<div class="code">
+[DllImport("user32.dll", EntryPoint = "FindWindow", CharSet = CharSet.Auto)]<br/>
+
+private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+</div>
+<div class="items">
+其中user32.dll是指明我们需要的Windows API函数所在的库文件，EntryPoint是指明了我需要的Windows API函数的访问点。这个参数是可以省略的，当我们C#定义的函数名称和Windows API中的函数名称一致的时候可以省略这个参数。如我们上个例子可以改写成：
+</div>
+<div class="code">
+[DllImport("user32.dll", CharSet = CharSet.Auto)]<br/>
+private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+</div>
+<div class="items">
+CharSet参数表明我们怎样处理字符转换问题，因为Windows API函数都是基于C语言的函数，在数据类型上和C#有很多不同，所以我们需要对转换规则进行定义。例子中我们使用的是CharSet.Auto这就是让.Net框架自己来决定如何转化字符，实际上这是很方便的一种用法。
+
+</div>
+<div class="items">
+IntPtr 是C#中为我们使用C语言中程序句柄而准备的一个特殊类型，我们可以简单的把它看成一个句柄的变量，在C#中与int，string等类型有相同的地位。
+</div>
+<div class="items">
+好了，前面的知识大家都明白了之后，我们可以正式的来写我们的代码了。请大家往下看：）
+</div>
+<div class="items" style="font-weight:bold;">
+待测程序：
+</div>
+<div class="items">
+Windows自带的Notepad程序
+</div>
+<div class="items" style="font-weight:bold;">
+测试设计：
+</div>
+
+<div class="items"> 
+
+新建一个ConsoleApplication，写入下面的代码，其功能是：<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;1.	运行Notepad程序<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;2.	打开Replace菜单<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;3.	在Find what text box 中输入：This is a test<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;4.	关闭Replace菜单<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;5.	关闭Notepad程序<br/>
+</div>
+<div class="items" style="text-align:right;">
+<a href="API_Test.zip" title="下载代码">详细代码</a>
+</div>
+<div class="items" style="font-weight:bold;">代码评注：
+</div>
+<div class="items">
+在Main()函数中，我们多次使用了Sleep()函数，它的目的只是让我们的测试代码运行的慢一点，能够让大家看清楚测试的过程。在我们实际的测试中，推荐大家编写类似于FindMainWindow()这样的可以等待被测程序渲染控件，直到我们的测试代码找到他们的函数。这样比使用单纯的Sleep()函数能更加节约时间，避免因为计算机性能问题而导致的测试异常。
+</div>
+<div class="items">
+FindWindow()第一个参数为要查找窗口的类名，第二个参数为要查找窗口的标题。这些参数我们可以通过Spy++来得到，如下图：
+
+</div>
+<div class="items" style="text-align:center;margin:20px auto;">
+<img src="img/yf1.gif"  alt="" />
+
+</div>
+<div class="items">
+这里我们只使用了函数中的第二个参数来查找目标程序的句柄。并且我们编写了FindMainWindow()函数来控制查找的时间，这样做可以避免很多因为程序渲染问题而出现的异常，而且还可以节省我们的时间。
+</div>
+<div class="items">
+FindWindowEx()函数可以查找一个窗口中的控件，并且可以指定在一个控件树上从那个控件开始查找，在我们的例子中我们查找Text控件就是用的这个办法。如何确定一个控件树各各控件的位置呢，一般我们可以借助Spy++来查找。如下图:
+</div>
+<div class="items" style="text-align:center;margin:20px auto;">
+<img src="img/yf2.gif"  alt="" />
+
+</div>
+
+<div class="items">
+GetMenu()函数返回目标程序主菜单的句柄。GetSubMenu()函数有两个参数，一个是父菜单的句柄，一个是从0（数字）开始的子菜单的索引，它会返回相应子菜单的句柄。如我们在例子中的调用GetSubMenu(menuHandl, 1)则返回第二个子菜单的句柄。GetMenuItemID()函数返回一个我们要操作菜单的索引，其参数是一个是目标菜单选项所在的子菜单句柄，一个是目标菜单选项的数字索引，我们例子中调用为GetMenuItemID(subMenuHandl, 9)，大家也许注意到了，在Notpad的Edit菜单下，第一个索引Undo为0，那么Replace因该为第7个索引，但是我们例子中却写的9。这是应为在Edit菜单下有两条分组的横隔，它们也是菜单的一个索引。希望这点不会给大家带来迷惑。注意这个函数返回值是int类型。通过上面的三个函数，我们就可以定位到我们需要操作的菜单，如例子中：
+</div>
+<div class="code">
+//得到Notepad菜单的句柄<br/>
+IntPtr menuHandl = GetMenu(mainWindowhandl);<br/>
+//得到Edit子菜单的句柄<br/>
+IntPtr subMenuHandl = GetSubMenu(menuHandl, 1);<br/>
+//得到Replace子菜单的句柄<br/>
+int subMenuID = GetMenuItemID(subMenuHandl, 9);
+
+</div>
+<div class="items">
+然后我们就可以调用SendMessage()函数来操作菜单。在例子中SendMessage()有一个重载函数，大家在调用的时候需要注意一下。
+</div>
+<div class="items">
+SendMessage()和PostMessage()函数是我们整个测试代码的灵魂，其余所有的代码都为这两个函数准备必须的参数而存在。他们的作用就是向我们的目标程序发送消息以达到操作目标程序的目的。至于为什么要发送消息，为什么发送了消息就能达到我们的目的就不是我们这片文章要讨论的范围了，如果大家有兴趣可以参考一些windows消息驱动机制方面的书籍。
+</div>
+<div class="items">还有一个问题就是在.NET Framework 1.1以及之前的程序中Menu控件使用的类型是Mainmenu 所以我们可以用GetMenu()函数得到它的句柄，但是.NET Framework 1.1之后Menu使用的是MenuStrip控件，GetMenu()这个函数已经不再适用了，所以大家在调试代码的时候要注意这个问题。</div>
+<div class="items">以上代码在XP_SP2EN+VS2008+.NET Framework 3.5环境下调试通过。因为本人也是初学者，只看到了自动化测试的一些皮毛，文中难免有疏漏错误之处，恳请大家批评指正。</div>
+</div>
+<div class="articleAboutMale">
+<div class="authorImg"><div id="authorImgnow_lyf"></div></div>
+<div class="authorAbout">作者信息: 李云峰 
+<div class="iabout">
+原 Spaces Core Team 成员, 现 MSN toolbar 项目组 SDET. <br/>勤奋好学, 不断进取, 待人真诚. </div><br/>
+<div class="iabout">E-Mail: v-yunfli@microsoft.com <br/>
+	 MSN: yunfeng_li@live.com<br/>
+ 
+</div>
+</div>
+</div>
+
+<div id="fnav">
+<ul id="pagination-digg">
+ 	  <li  class="next"><a href="transformation.htm"> &raquo;</a></li>
+      <li><a href="innovation.htm">8</a></li>
+      <li><a href="management.htm">7</a></li>
+      <li class="active">6</li>
+      <li><a href="hottech.htm">5</a></li>
+      <li><a href="specialfocus.htm">4</a></li>
+      <li class="previous"><a href="feature.htm">&laquo; </a></li>
+</ul>
+</div>
+
+
+<div class="articleFooter"></div>
+</div>
+</div>
+
+
+<div id="right">
+<div class="notes">
+<h4>本期内容</h4>
+<ol class="catalog">
+<li><a href="default.htm" title="">刊首语(Preface)</a></li>
+<li><a href="monthlyoverview.htm" title="">月培训总揽(Monthly Overview)</a></li>
+<li><a href="feature.htm" title="">特写(Feature)</a></li>
+<li><a href="specialfocus.htm" title="">特别关注(Special Focus)</a></li>
+<li><a href="hottech.htm" title="">热点技术(Hot Tech &amp; Info)</a></li>
+<li><a href="learningscript.htm" title="">学习手记(Learning Script)</a></li>
+<li><a href="management.htm" title="">管理(Management)</a></li>
+<li><a href="innovation.htm" title="">创新(Innovation)</a></li>
+<li><a href="transformation.htm" title="">成长(Transformation)</a></li>
+</ol>
+</div>
+</div>
+
+</div>
+<div style="clear: both;"></div>
+<div id="footer">
+&copy;2008 <span style="color:#669900">B</span><span style="color:#FF3399">T</span><span style="color:#3366FF">O</span> Beyondsoft Training Online - 博彦培训月刊 保留所有权利
+</div>
+</div>
+
+</body>
+
+</html>

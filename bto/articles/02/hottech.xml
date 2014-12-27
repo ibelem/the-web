@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="../../xsl/200807.xsl" ?>
+<b>
+  <e>博彦培训月刊</e>
+  <l>第二期</l>
+  <e2> 2008.07.10</e2>
+  <m>
+    <title>Ajax 技术</title>
+    <author>
+    	<name>吴锐</name>
+    	<intro>来博彦三年，做过几个微软项目，目前在Windows Live Calendar Int'l team 做SDET，有丰富的自动化测试经验，其中有两篇有关测试的文章曾发表在《程序员》杂志。</intro>
+    	<email>X@microsoft.com</email>
+		<other>MSN: X@live.com</other>
+		<img>wurui.jpg</img>
+    </author>
+    <article>
+ 		<i>
+ 			<section>做一个假设：假设黑人领袖马丁.路德.金复活，假设他从事软件编程一段时间，假设他正在说《我有一个梦》，那么我们肯定能听到一段话: “我有一个梦，以后不再面对电脑写这些无聊的代码了。我有一个梦，凡是带电的，电脑，电视，电话，电灯，我都把它们灭了。 我有一个梦…..”。(”I have dream that one day I will never code any more. I have dream, Monitor, mouse, microphone, all the things whose name start with M, I throw them to Alabama.  I have a dream…”)</section>
+ 		</i>
+ 		<i>
+ 			<section>这里就是枯燥的程序世界。二进制代码似乎已经阻挡了阳光，这里的世界一片漆黑。</section>
+ 		</i>
+ 		<i>
+ 			<section>但就是在这个枯竭、黑暗的世界里，还是有如同流星划过天际般的技术灵感，带给人们一些稍许的慰藉，稍许方便。在这众多的灵感中，有一颗代表技术进步的流星，那就是Ajax. 通过他，程序员能比较轻松的提供给广大用户高质量的网络软件产品。</section>
+ 		</i>
+ 		<i>
+ 			<section>如今,  Google Suggest 和 Google Maps 等较普及的产品都使用了 Ajax，通过Ajax，我们可以使得客户端得到丰富的应用体验及交换操作，而用户不会感觉到有网页提交或刷新的过程，页面也不需要被重新加载，应用的数据交换都被隐藏。</section>
+ 		</i>
+ 		<i>
+ 			<section>传统的 WEB 应用程序模型是这样工作的：用户的界面操作触发 HTTP 请求，服务器在接收到请求之后进行一些业务逻辑处理，如保存数据等，然后向客户端返回一个 HTML 页面。但这种方式并没有给予用户很好的应用体验，当服务器在处理数据的时候，用户则处于等待的状态，每一步操作都需要等待，太多的等待会使用户越来越没有耐心。而 Ajax 则大不相同，它通过 Ajax 引擎，使得应用过程很自然，操作很流畅，因为其只和服务器交换有用的数据，而页面显示等不必要的数据则不再重新加载。Ajax 引擎其实就是 JavaScript、XML、XMLHttpRequest 等等各项技术的综合应用。</section>
+ 		</i>
+ 		<i>
+ 			<section>具体来说，在浏览器端，浏览器端框架被划分成两大类：一是应用程序框架，它提供浏览器的功能，但是常以包括窗口小部件抽象和另外的部件而出名，其功能主要围绕桌面GUI框架。二是基本结构框架，其提供基本的管道和可移植的浏览器抽象，让开发者去创建内容。它的典型的功能包括： 针对XMLHttpRequest的包装器以封装浏览器-服务器的交互。(所有的框架都提供这一功能)； XML操作和查询； 根据来自XMLHttpRequest的应答执行DOM操作； 在一些情况中，与另外的浏览器端技术如Flash(和潜在的Java applets)集成在一起；等。</section>
+ 		</i>
+ 		<i>
+ 			<section>在服务器端，服务器端框架通常以下面两种方式工作(尽管它们在这里根据语言的不同进行了分类)：一是HTML/JS生成，服务器提供完整的HTML/Javascript代码生成和浏览器-服务器协调，结果是只有浏览器端编码可以被定制；二是远程调用，Javascript调用直接被路由到服务器端功能(例如Java方法)并返回到Javascript回叫处理器或者Javascript调用服务器以提取信息，例如会话细节，数据库查询等。</section>
+ 		</i>
+ 		<i>
+ 			<section>微软提供了一个工具包，用来完成Ajax的功能，称作Atlas。Atlas客户端脚本框架是可扩展的，100%面向对象的JavaScript客户端脚本框架，允许开发这很容易地构建拥有丰富的UI工能并且可以连接Web Services的Ajax风格浏览器应用程序。使用Atlas，开发者可以使用DHTML、JavaScript和XMLHTTP来编写Web应用程序，而无须掌握这些技术的细节。</section>
+ 		</i>
+ 		<i>
+ 			<section>Atlas客户端脚本框架可以在所有的现代浏览器上运行，而不需要Web服务器。它还完全不需要安装，只要在页面中引用正确的脚本文件即可。Atlas客户端脚本框架包含下列组件：</section>
+ 		</i>
+ 		<i>
+ 			<section>1） 一个可扩展的和新框架，其中为JavaScript添加了很多新特性，如生存期管理、集成、多播事件处理器和接口 2） 一个基础类库，提供了通用特性，如丰富的字符串操作功能、计时器和运行任务等 3） 一个UI框架，可以跨浏览器实现动态行为 4）一个网络栈，用于简化对服务器的连接和对Web Services的访问。</section>
+ 		</i>
+ 		<i>
+ 			<section>微软为ASP.NET应用程序专门设计了一组Ajax风格的服务器控件，并且加强了现有的ASP.NET页面框架和控件，以便支持Atlas客户端脚本框架。</section>
+ 		</i>
+ 		<i>
+ 			<section>ASP.NET 2.0中有一项称作异步客户端回调的新特性，使得构建无中断的页面变得很容易。异步客户端回调包装了XMLHTTP，能够在很多浏览器上工作。ASP.NET本身包括了很多使用回调的控件，包括具有客户端分页和排序功能的GridView和DetalsView控件，以及TreeView空间的虚拟列表支持。</section>
+ 		</i>
+ 		<i>
+ 			<section>Atlas客户端脚本框架将完全支持ASP.NET 2.0回调，但微软希望进一步增强浏览器和服务器之间的集成性。例如，你可以将Atlas客户端控件的数据绑定指定为服务器上的ASP.NET数据源控件，并且可以从客户端异步地控制Web页面的个性化特征。</section>
+ 		</i>
+ 		<i>
+ 			<section>总之，Ajax具有比较多的应用框架，不同的环境依赖不同的框架可能会产生不同的效果。Atlas只是众多框架中的一个，它所具备的能力和特征可以给网络编程者带来方便，给民众网友带来方便。但是更重要的是它还能给人们带来期待，未来的Ajax会有什么发展，未来Atlas会有什么进步，我们拭目以待。</section>
+ 		</i>
+ 
+     </article> 
+    <topic>
+    	<id>5</id>
+    	<name>热点技术(Hot Tech + Info)</name>
+    </topic>
+  </m>
+</b>
+

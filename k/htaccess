@@ -1,0 +1,8 @@
+
+RewriteEngine on
+# Use PHP5 Single php.ini as default
+AddHandler application/x-httpd-php5s .php
+RewriteCond %{HTTP_HOST} ^m.min-vip.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.m.min-vip.com$
+RewriteRule ^/?$ "http\:\/\/min\-vip\.com\/m" [R=301,L]
+

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="../../xsl/200808.xsl" ?>
+<b>
+  <e>博彦培训月刊</e>
+  <l>第三期</l>
+  <e2> 2008.08.10</e2>
+  <m>
+    <title>.Net 自动化测试学习笔记</title>
+    <author>
+    	<name>李云峰</name>
+    	<intro>原 Spaces Core Team 成员, 现 MSN toolbar 项目组 SDET. 勤奋好学, 不断进取, 待人真诚. </intro>
+    	<email>v-yunfli@microsoft.com</email>
+		<other>MSN: yunfeng_li@live.com</other>
+		<img>lyf.jpg</img>
+    </author>
+    <article>
+ 		<i>
+ 			<section>在这里首先要感谢我的lead熊姣姣，没有她的教导我是不会写出这篇文章的。因为平时对Windows API 研究的多一些，所以在工作中大部分工作希望用API来完成，但是有一次在我机器上能够通过的代码，在她的机器上怎么也过不去。后来，她对我说：你不能光看到一种技术，要广泛的使用其他的技术，特别是要学习和借鉴别人已经写成的东西。这个功能虽然你能用API完成，但是也许选择.Net里面的类来完成会更好一些，因为.Net的类里面有更多的容错方法和更好的兼容性，这点会比你用API来实现然后自己去写更多的代码来容错和保证兼容性要好的多。所以我想借培训月刊这个途径给大家提个醒：专著一种技术是没有错的，但是我们不能忽略其更好的方法，在写代码的时候要善于借鉴和引用，避免犯坐车却要从轮子造起的错误。每种技术都有自己擅长的方向，我们要做的就是在合适的地方用合适的技术从而提高我们的效率。</section>
+ 		</i>
+ 		<i>
+ 			<section>上两次和大家一起学习了Windows API 和COM组件在我们自动化测试中的作用，这次和大家一起学习.Net的测试，也许提到.Net很多同事会想到反射(Reflection)，但是反射对于.Net写出来的程序，也就是运行在CLR下面的程序测试起来比较方便，对于一些非.Net 的程序就不太顺手了。所以我们把目标转向了一种新的程序测试类库，它是WPF(Windows Presentation Foundation)的一部分，包含在.NET Framework 3.0或更高的版本中，最重要的是它能够很好的支持Win32 应用程序、.NET Windows 窗体应用程序和 WPF 应用程序。不论被测程序是运行在XP上、vista上还是2003、2008 Server的系统上，只要这个系统支持.NET Framework 3.0或更高版本，我们的测试代码都可以正常运行。</section>
+ 		</i>
+ 		<i>
+ 			<section> 待测程序：
+Windows自带的Notepad程序
+</section>
+ 		</i>
+ 		<i>
+ 			<section>测试设计： 1. 运行Notepad程序; 2.	打开Replace菜单; 3. 在Find what text box 中输入：This is a test; 4. 关闭Replace菜单; 5. 关闭Notepad程序.
+</section>
+ 		</i>
+ 		<i>
+ 			<section>UI 自动化库体系结构使用客户端 - 服务器视点和命名约定。从 UI 测试自动化的角度来看，这意味着所测试的应用程序被称为服务器，测试工具被视为客户端 - 测试工具客户端向所测试的应用程序（服务器）请求 UI 信息。这里我们也遵守这个命名的规定，虽然这个不是必须的。 </section>
+ 		</i>
+ 		<i>
+ 			<section>下面我们分别介绍一下在.NET Framework 3.0中我们可能会用到的类库：</section>
+ 		</i>
+ 		<i>
+ 			<section>1.	UIAutomationClient.dll 库实际上就是 UI 自动化客户端使用的测试自动化库; 2.	UIAutomationTypes.dll 库包含 UIAutomationClient.dll 和其他 UI 自动化服务器库使用的各种类型的定义; 3. UIAutomationClientSideProvider.dll 和 UIAutomationProvider.dll 库。UIAutomationClientSideProvider.dll 库包含一组与构建时不支持自动化的控件配合使用的代码，这些控件可能包括旧式控件和自定义的 .NET 控件。由于我的应用程序全部使用标准控件（均设计为支持 UI 自动化），因此我不需要此库; 4. UIAutomationProvider.dll 库是一组接口定义，可供创建自定义 UI 控件和希望控件能被 UI 自动化库访问的开发人员使用。
+</section>
+ 		</i>
+ 		<i>
+ 			<section>首先我们新建一个Console Application的程序，名称叫Net_Text.然后在工程中添加UIAutomationClient.dll的引用，如图:</section>
+ 		</i>
+ 		<gif>
+ 			<section>learn/200808a.gif</section>
+ 		</gif>
+ 	 
+ 		<i2>
+ 			<section>AutomationElement Desktop = AutomationElement.RootElement;
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>大多数对使用 UI 自动化库进行测试自动化有用的对象都是AutomationElement 类型。在执行 UI 测试自动化时，每个可视实体（控件、窗口等）视为根元素作为桌面窗口的层次树结构的一部分是非常有用的。通过这个树状结构，我们可以一层一层找到我们需要的元素。在此我能使用 AutomationElement 的静态 RootElement 属性获得对顶层可视元素（桌面）的引用。
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>AutomationElement noteForm = Desktop.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "Untitled - Notepad"));
+
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>通过Desktop层次树结构我们找到noteForm元素。</section>
+ 		</i2>
+ 		<i2>
+ 			<section>AutomationElement noteForm = Desktop.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "Untitled - Notepad"));
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>我使用 FindFirst 方法只搜索对Desktop的第一个可用的引用，我的第一个参数 TreeScope.Children 指示 FindFirst 仅查看其上下文的直接子控件，而不需查看其上下文的所有后代。如果我们要查看后代，需要需要参数TreeScope.Descendants。第二个参数告诉我们要找的一个元素的Name属性是"Untitled - Notepad"。
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>ValuePattern vpTextBox = (ValuePattern)TextBox.GetCurrentPattern(ValuePattern.Pattern);
+vpTextBox.SetValue("This is a test :)");
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>我使用SetValue对TextBox进行赋值操作。我们之所以没有直接对TextBox操作是因为在NET Framework 3.0中，把所有的元素类型都统一到了AutomationElement一个窗口，一个button一个TextBox都是一个AutomationElement所以最后我们在为不同的元素和不同的适配器相匹配，从而完成对元素的操作。这样做的好处是我们可以非常方便的定义元素，又能灵活的为元素匹配不同的适配器。
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>InvokePattern ClickButton = (InvokePattern)CButton.GetCurrentPattern(InvokePattern.Pattern);
+ClickButton.Invoke();
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>这段代码和TextBox的操作一样，可以参考上面
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>在这个的代码中，我们大量的使用了Sleep()函数，在实际的测试工程中，我们是不推荐这么做的，更好的解决办法，大家可以参考我的” 基于Windows API的Win 32 程序UI自动化测试”一文中FindElement();函数的写法。</section>
+ 		</i2>
+ 		<i2>
+ 			<section>以上代码在XP_SP2EN+VS2008+.NET Framework 3.5环境下调试通过。因为本人也是初学者，只看到了自动化测试的一些皮毛，文中难免有疏漏错误之处，恳请大家批评指正.</section>
+ 		</i2>
+ 
+
+ 		<i3>
+ 			<section>Net_Test.zip</section>
+ 		</i3>
+
+ 
+     </article> 
+    <topic>
+    	<id>6</id>
+    	<name>学习手记(Learning Script)</name>
+    </topic>
+  </m>
+</b>
+

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Fancy Box</title>
+<link rel="stylesheet" href="css/fancy.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/jquery-1.2.3.pack.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox-1.0.0.js"></script>
+<script type="text/javascript" src="js/jquery.pngFix.pack.js"></script>
+<script type="text/javascript" src="js/jquery.metadata.js"></script>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+ 
+			$("p#test3 a").fancybox({
+				'zoomSpeedIn':	0, 
+				'zoomSpeedOut':	0, 
+				'overlayShow':	true
+			});
+			
+			$("a#custom_1").fancybox({
+				'itemLoadCallback': getGroupItems
+			});
+ 
+ 
+		});
+
+		//List can contain mixed media too
+		//Parameter "o" ir optional and used to override settings, example: {url: "http://www.google.com", title: false,  o: {'frameWidth': 200} }
+		var imageList = [
+			{url: "http://www.opera.com/img/front/col/new/opera-mini4.1.2.jpg", title: "First image"},
+			{url: "http://www.opera.com/img/front/col/new/opera-mini4.1.2.jpg", title: "Second image"},
+			{url: "http://www.opera.com/img/front/col/new/opera-mini4.1.2.jpg", title: "Third image"}
+		];
+		
+		function getGroupItems(opts) {
+			jQuery.each(imageList, function(i, val) {
+		        opts.itemArray.push(val);
+		    });
+		}
+		
+</script>
+</head>
+<body>
+<p id="test3">
+<a href="sample.jpg" rel="group1" ><img src="sample_small.jpg" alt=""/></a> 
+
+<a href="http://www.opera.com/img/front/campaign/0805opera95.jpg" rel="group1" title="Look at me Belem!"><img src="sample_small.jpg" alt=""/></a> 
+<a href="http://www.opera.com/img/front/col/new/opera-mini4.1.2.jpg" rel="group1" title="中国加油!"><img src="sample_small.jpg" alt=""/></a>
+<a href="http://www.opera.com/img/front/col/new/b2b.jpg" rel="group1" ><img src="sample_small.jpg" alt=""/></a>
+</p>
+
+<a id="custom_1" href="javascript:;"><img alt="" src="sample_small.jpg" /></a>
+ 
+</body>
+
+</html>

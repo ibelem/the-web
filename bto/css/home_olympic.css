@@ -1,0 +1,431 @@
+﻿html {
+	margin: 0px;
+	padding:0px;
+	background:#fff url('../img/olympic/bgtop.jpg') repeat-x top;
+}
+body {
+	font-family:"Microsoft YaHei",  Helvetica, Arial, tahoma, 宋体,  sans-serif;
+	font-size:80%;
+	color: #3a3a3a; 
+	margin:0px auto;
+	text-align:center;
+
+}
+#wrap {
+	width: 980px;
+	max-width: 1260px;
+	min-width:980px;
+	text-align:left;
+	margin:0px auto;
+}
+#header {
+	
+	background:transparent url('../img/olympic/topright.png') no-repeat bottom right;
+}
+#main {
+	margin-top:10px;
+}
+#nav {
+	margin-bottom:10px;
+}
+.ui-tabs-nav {
+	position:relative;
+    height: 23px;
+    width: 50%;
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+    border: 1px solid #FFCD66;
+    background:#fff url('../img/olympic/nav_bg.gif') repeat-x;
+}
+.ui-tabs-nav li {
+    float: left;
+    list-style: none;
+}
+.ui-tabs-nav li.back {
+    border: 1px solid #000;
+    background-color: #ffc;
+    height: 22px;
+    position: absolute;
+}
+
+.nothing {
+	;
+} 
+.ui-tabs-nav .ui-tabs-unselect a:active { 
+    ;
+}
+.ui-tabs-nav .ui-tabs-unselect a:focus { 
+    ;
+}
+.ui-tabs-unselect a:hover { 
+    ;
+}
+.ui-tabs-disabled {
+    ;
+}
+.ui-tabs-nav .ui-tabs-disabled a:visited {
+    ;
+}
+
+.ui-tabs-disabled a:link {
+    ;
+}
+
+.ui-tabs-nav li a {
+	text-decoration: none;
+	color: #333;
+	text-align: center;
+	top: 1px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	z-index: 1;
+	display: block;
+	float: left;
+	height: 16px;
+	position: relative;
+	overflow: hidden;
+	margin: auto 10px;
+}
+.ui-tabs-nav li a:visited {
+	border: none;
+} 
+.ui-tabs-nav li a:active {
+	border: none;
+} 
+.ui-tabs-nav li a:hover {
+	border: none;
+} 
+#mNum {
+	position:absolute; 
+	top:10px;
+	width:168px;
+	padding:12px 0px 10px 0px;
+	margin-left:520px;
+	border:1px #FFCD66 solid;
+	height:21px;
+	text-align:center;
+	background-color: #ffc;
+} 
+#logo {
+	background:#fff url('../img/olympic/logo.gif') no-repeat;
+	height: 67px;
+	width:218px;
+}  	
+#left {
+	width: 668px;
+	float: left;
+	padding: 10px;
+	border:1px #FFCD66 solid;
+	overflow:hidden;
+	margin-right:6px;
+	font-size:102%;
+	background:#FFFFFF url('../img/olympic/divbglt.jpg') repeat-x;
+}
+#right {
+	padding: 10px;
+	border:1px #FFDE77 solid;
+	overflow:hidden;
+	width:256px;
+	background-color:#fff;
+	font-size:96%;
+	background:#FFFFFF url('../img/olympic/divbg.jpg') repeat-x;
+}
+#right2 {
+	margin-top:6px;
+	padding: 2px;
+	border:1px #FFDE77 solid;
+	overflow:hidden;
+	width:272px;
+	background-color:#fff;
+	font-size:96%;
+	background:#FFFFFF url('../img/olympic/divbg.jpg') repeat-x;
+}
+
+.notes2 {
+	padding:0px 10px 10px 10px ;
+	color:#fc7d06;
+	text-decoration:underline;
+}
+.iimg {
+		background:#fff url('../img/sidebar/kongfupanda.gif') no-repeat;
+		height:59px;
+}
+
+h4 {
+	margin:0px;
+	font-size:100%;
+}
+.catalog a:link {
+	color:#f93;
+	text-decoration:none;
+}
+.catalog a:hover {
+	color:#f60;
+	text-decoration:underline;
+}
+
+a:active {
+	color:#f93;
+	text-decoration:none;
+}
+ 
+.catalog a:visited {
+	color:#f93;
+	text-decoration:none;
+}
+ 
+.catalog {
+	list-style:none;
+	}
+
+.catalog li {
+	background:#fff url(../img/square1.gif) center left no-repeat;
+	padding-left:16px;
+	margin-left:-14px;
+	}
+
+.catalog li:hover {
+	background:#fff url(../img/olympic/square2.gif) center left no-repeat;
+	margin-left:-14px;
+	}
+	
+	
+.catalog li.current {
+	background:#fff url(../img/olympic/square2.gif) center left no-repeat;
+	margin-left:-14px;
+	}
+	
+	
+.tdate {
+	font-size:80%;
+	font-style:italic;
+}
+.title {
+	font-size:medium;
+	text-align:center;
+	margin:22px 0px 6px 0px;
+}
+.articleby {
+	font-style:italic;
+	text-align:center;
+	margin:4px auto;
+
+}
+.items {
+	margin:5px auto;
+	text-indent:26px;
+	letter-spacing:3px;
+	line-height:20px;
+}
+
+.ToL {
+	font-size:110%;
+	margin:20px 0px 16px 0px;
+	border-bottom:1px dotted #ccc;
+	padding-bottom:2px;
+	text-align:right;
+}
+.ttL {
+	margin:2px auto;
+	font-size:116%
+}
+.itemsL {
+	margin:2px 0px 10px 0px;
+	letter-spacing:3px;
+	line-height:20px;
+}
+
+.itemsLIMG {
+	margin:2px 0px 10px 0px;
+	letter-spacing:3px;
+	line-height:20px;
+	text-align:center;
+}
+
+.itemsLIMG img {
+	border:1px #ccc solid;
+	text-align:center;
+}
+
+.onSg {
+	background-color: #feffef;
+}
+
+.onSgl {
+	;
+}
+
+
+.trathismonth {
+	margin:4px auto;
+}
+
+.articleFooter {
+	margin-bottom:10px;
+}
+#footer {
+	margin-top: 8px;
+	padding: 2px 0px 6px 0px;
+	font-size: 92%;
+	color: #5e5e5e;
+	border-top: 1px solid #FFCD66;
+}
+
+.authorImg {
+	border-top:1px #ddd solid;
+	border-left:1px #ddd solid;
+	border-right:1px #bbb solid;
+	border-bottom:1px #bbb solid;
+	width:64px;
+	padding:6px;
+	margin:10px 10px;
+	float: left;
+}
+
+.be {
+	font-weight:bold;
+}
+#magAbout {
+	margin-top:16px;
+	padding:10px;
+	border-top:1px solid #FFDE77;
+	border-bottom:1px solid #FFDE77;
+	background-color:#FFFBD1;
+	font-size: 95%;
+}
+
+.articleAbout {
+	margin-top:16px;
+	clear:both;
+	border-top:1px solid #FFDE77;
+	border-bottom:1px solid #FFDE77;
+	background-color:#FFFBD1;
+	font-size: 95%;
+}
+.articleAboutMale {
+	margin-top:16px;
+	clear:both;
+	border-top:1px solid #FFEDA2;
+	border-bottom:1px solid #FFEDA2;
+	background-color:#FEFFCF;
+	font-size: 95%;
+}
+
+.authorImgnow {
+	height:64px;
+	width:64px;
+	background:#fff url('../img/64_64/liuying.jpg') no-repeat;
+}
+.authorAbout {
+	margin:10px;
+	padding:12px;
+}
+
+.authorAboutL {
+ 
+	padding:12px;
+	width: 520px;
+	margin-left:20px;
+}
+
+
+.belem_no {
+        display: none;
+    }
+ 
+.belem_sections {
+ 
+} 
+
+#articles {
+	background:#fff url('../img/divbgart.jpg') no-repeat right bottom;
+}
+
+#contribution {
+	background:#fff url('../img/divbgcon.jpg') no-repeat right bottom;
+
+}
+
+#topics {
+ 
+
+}
+
+
+.aboutTopic {
+	background-color:#FFFBD1;
+	border-bottom:#FFDE77 dashed 1px;
+	border-top:#FFDE77 dashed 1px;
+	padding:10px;
+	margin:6px 20px;
+	font-size:90%;
+	color:#666;
+}
+
+.drive {
+	margin:10px 20px;
+}
+h2 {
+ 	font-size:100%;
+ 	border-bottom: 1px dashed #e5e5e5;
+ 	text-align:right;
+ 	padding-bottom:2px;
+ 	color:#666;
+ 	 
+}
+.iblockquote {
+	margin:4px 0px 14px 0px;
+}
+
+.thisTopic {
+	margin:6px 20px;
+
+}
+.arlink {
+	font-size:medium;
+	margin:14px 0px 2px 0px;
+}
+
+.arlinkTopic {
+	font-size:115%;
+	margin:14px 0px 2px 0px;
+}
+
+.aritems {
+	margin:20px auto;
+	
+}
+
+.aritems a:link, a:visited, a:active {
+	text-decoration:none;
+	color:#f93;
+
+}
+
+.aritems a:hover {
+	text-decoration:none;
+	color:#f60;
+	border-bottom:1px dashed #f60;
+}
+
+.arlink a:link, a:visited, a:active {
+	text-decoration:none;
+	color:#f60;
+}
+
+.arlink a:hover {
+	text-decoration:none;
+	color:#f60;
+	border-bottom:1px dashed #f60;
+}
+.arauthorby {
+	font-style:italic;
+	font-size:90%;
+}
+.arauthor {
+	font-style:italic;
+	font-size:90%;
+}
+

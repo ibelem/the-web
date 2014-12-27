@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>[minz] - Screen Check</title>
+<meta charset="utf-8" >
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+<style>
+  body {
+    background-color: #ff9933;
+  }
+
+	:-webkit-full-screen body, #full {
+	  width: 100%;
+	  height: 100%;
+    background-color:  #aaff99;
+	}
+
+</style>
+ 
+<script type="text/javascript">
+  var videoElement;
+    
+  function toggleFullScreen() {
+    if (!document.mozFullScreen && !document.webkitFullScreen) {
+      if (videoElement.mozRequestFullScreen) {
+        videoElement.mozRequestFullScreen();
+      } else {
+        videoElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+      }
+    } else {
+      if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else {
+        document.webkitCancelFullScreen();
+      }
+    }
+  }
+  
+  document.addEventListener("keydown", function(e) {
+    if (e.keyCode == 13) {
+      toggleFullScreen();
+    }
+  }, false);
+
+	function rdBG(b,e){
+	    if(!b && b!=0 || !e){return "?";}
+	    return Math.floor( ( Math.random() * e ) + b );
+	}
+	
+
+	
+	function init2() {
+    var iii = rdBG(0,27);
+    var bgcolor = ["000000", "ffffff", '1abc9c', '2ecc71', '3498db', '9b59b6', "000000", "ffffff", '34495e', '7f8c8d', 'bdc3c7','c0392b', 'd35400', "000000", "ffffff", 'f39c12','f1c40f', 'e67e22', 'e74c3c','ecf0f1', "000000", "ffffff", '95a5a6', '2c3e50','8e44ad', '2980b9', '27ae60', '16a085'];
+
+		var t = document.body;
+		videoElement = document.getElementById('full');
+		t.setAttribute('style', 'background-color: #' + bgcolor[iii]);
+		toggleFullScreen();
+	}
+
+  function init() {
+    setInterval("init2()", 1000);
+  }
+
+	document.addEventListener('DOMContentLoaded', init, false);
+	document.addEventListener('touchmove', init, false);
+</script>
+
+
+</head>
+<body>
+  <div id="full"></div>
+</body>
+</html>

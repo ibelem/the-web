@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>[minz] - Screen Resolution</title>
+<meta charset="utf-8" >
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes" name="viewport" />
+
+<style type="text/css">
+	body {
+	overflow:auto;
+	font-family:tahoma; 
+	font-size: 11px;
+	}
+ 
+	#public, #screencheck {
+	margin:10px auto;
+	padding:5px;
+	font-style: italic;
+}
+</style>
+<script type="text/javascript">
+	var doc = document, win = window;
+	
+	function init() { 
+		var cH = doc.documentElement.clientHeight;
+		var cW = doc.documentElement.clientWidth;
+		var sH = screen.height;
+		var sW = screen.width;
+		var saH = screen.availHeight;
+		var saW = screen.availWidth;
+		var dcH = doc.body.clientHeight;
+		var dcW = doc.body.clientWidth;
+		var doH = doc.body.offsetHeight;
+		var doW = doc.body.offsetWidth;
+		var dsH = doc.body.scrollHeight;
+		var dsW = doc.body.scrollWidth;
+		var wiW = win.innerWidth;
+		var wiH = win.innerHeight;	
+
+		var ePub = document.querySelector('#public');
+		
+		var eResultP = 'doc.documentElement.clientWidth * doc.documentElement.clientHeight == ' + cW + ' * ' + cH + '<br/><br/>'
+					+ 'screen.width * screen.height == ' + sW + ' * ' + sH + '<br/><br/>'
+					+ 'screen.availWidth * screen.availHeight == ' + saW + ' * ' + saH + '<br/><br/>'
+					+ 'doc.body.clientWidth * doc.body.clientHeight == ' + dcW + ' * ' + dcH + '<br/><br/>'
+					+ 'doc.body.offsetWidth * doc.body.offsetHeight == ' + doW + ' * ' + doH + '<br/><br/>'
+					+ 'doc.body.scrollWidth * doc.body.scrollHeight == ' + dsW + ' * ' + dsH + '<br/><br/>'
+					+ 'win.innerWidth * win.innerHeight == ' + wiW + ' * ' + wiH ;
+		ePub.innerHTML = eResultP;
+	}
+	
+	doc.addEventListener('DOMContentLoaded', init, false);
+</script>
+
+
+</head>
+<body>
+	<div id="public">
+ 
+	</div>
+ 
+	<div id="screencheck">	
+ 		<a href="check.htm">Screen Check</a>
+	</div>
+	
+	 
+
+ 
+</body>
+</html>

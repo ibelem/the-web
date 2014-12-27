@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	function init() {
+		if(typeof(Worker) != undefined) {
+		
+		var worker = new Worker("_worker.js");
+		worker.postMessage(10);
+		var divResult = document.querySelector('#result');
+
+		function messageHandler(e) {
+			divResult.innerHTML = e.data;
+		}
+
+		 function errorHandler(e) {
+			postMessage('Error ' + e.lineno + ' '+ e.message);
+ 		}
+
+		function stopWorker(){
+			worker.terminate();
+			divResult.innerHTML = 'Worker Terminated';
+		}
+		
+		var idBtnT = document.querySelector('#btnTerminate'); 
+		idBtnT.addEventListener('click', stopWorker, false);
+ 		
+		worker.addEventListener('error', errorHandler, true);
+		worker.addEventListener('message', messageHandler, true);
+		}
+ 
+	}
+
+	function btnClick(){
+		var idBtn = document.querySelector('#btn'); 
+		idBtn.addEventListener('click', init, false);
+	}
+
+	document.addEventListener('DOMContentLoaded', btnClick, false);
+</script>
+
+</head>
+<body>
+	<div id="result"></div>
+	<input type="button" id="btn" name="btn" value="web worker test" />
+	<input type="button" id="btnTerminate" name="btnTerminate" value="web worker terminate" />
+</body>
+</html>

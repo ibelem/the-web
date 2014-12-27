@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="../../xsl/200807.xsl" ?>
+<b>
+  <e>博彦培训月刊</e>
+  <l>第二期</l>
+  <e2> 2008.07.10</e2>
+  <m>
+    <title>Introduction of Entry Box Scanner</title>
+    <author>
+    	<name>李雪菲</name>
+    	<intro>来博彦工作将近一年，一直在SPACE CORE组做STE。爱创新爱幻想，这次也是突发的灵感造就了这个工具。</intro>
+    	<email>v-xul@microsoft.com</email>
+		<other>MSN: constance_lee1126@hotmail.com</other>
+		<img>lixuefei.gif</img>
+    </author>
+    <article>
+    	<i>
+    		<section>长期从事手动测试，尤其是同一项目的手动测试的tester们可能都会有同感，由于在每个release里都去跑一些相同的case，因为每当新的release中增加了新的feature或对原有的feature的功能进行了修改，我们都得跑一遍以前跑过的那些case，来确认修改没有引入regression的bug。因此，时间长了，tester们不免会感到厌烦。</section>
+		</i>
+    	<i>
+    		<section>自动化测试是减轻tester负担，提高测试效率的好方法，但由于每个release的变化都很大、UI界面变换频繁、对case运行结果的判断过度依赖于人工、意外中断等原因导致自动化测试的实现非常困难。但是在工作中我发现，有很多case，他们的操作步骤是非常相似的，只是输入的参数不同。于是我想，能不能开发这样一种工具，将这些相似的case收集起来，并且在程序中写好了case的执行步骤，只要用户选择了需要进行测试的参数，那么这个工具就能针对每一个参数，去自动的实现case的运行？</section>
+		</i>
+ 
+    	<i>
+    		<section>由于我从事的是基于WEB的手动功能测试，我发现，对于网页上的textbox的测试，总是有些相似的规律。不管是普通的textbox还是SPACE网站中可以对文本进行格式化操作的RTE，我们测试的时候总是会输入同样的经典的测试字符串，比如说html encoded characters，xml encoded characters，特殊的字符（’*’，\，’,’等），HTML标签等。我们可以把这些常用的字符串收集起来并进行整理分类，然后当我们要对某一个textbox进行测试的时候，只要告诉程序我们要测试的textbox是哪个，我们要对它输入哪些字符串，程序就可以按照我们的要求对这个textbox依次输入这些字符串并提交结果，就可以达到自动测试textbox的目的了。</section>
+		</i>
+    	<i>
+    		<section>那么，现在还有一个重要的问题，就是输入这些字符串以后，我们如何来判断结果呢？当我们对一个textbox输入一个字符串并保存以后，在这个网站上，可能会有不止一个地方来显示这个刚才修改的字符串。而且我们对不同的textbox进行测试，修改后的string的显示方式、数量也是不同的。在这个时候没有必要去对每个textbox的测试结果进行编程来自动判断case是否运行成功，因为我们的目的是做出一个普适的工具，来对任何网站上的任何textbox进行测试。在这里我认为，截图后由人工判断结果是否正确是效率最高的也是最便捷的。当你选择的字符串全部输入运行完毕后，你可以通过截图去判断这中间有没有哪个步骤这些字符串被错误的编码了。而如果直接由机器判断，由于不同的textbox情况大不相同，很可能会造成遗漏。</section>
+		</i>
+ 
+    	<i>
+    		<section>下面展示一下这个工具的界面：</section>
+		</i>
+    	<gif>
+    		<section>feature/200807a.gif</section>
+		</gif>
+    	<i2>
+    		<section>当程序加载时，在最左边的listbox中会列出当前系统中打开的浏览器窗口，而中间的窗口会显示需要测试的字符串的类型（从一个XML文件中读取）。当我们选中某个类型后，具体的字符串就会在最右边的listbox中显示。我们只需要在最左边选中需要测试的textbox所在的浏览器窗口，通过中间和右边的listbox结合选中需要测试的字符串，最后在下面填入测试的textbox和保存按钮的ID（也可以点击右边的按钮自动捕获），就可以开始测试了。</section>
+		</i2>
+    	<i2>
+    		<section>除了这些基本功能以外，用户还可以从一个TXT文档中导入他自己定义的新的字符串。也可以进行极限测试，即连续多次（成百上千）对同一个textbox进行操作，看看是否还能正常的工作。</section>
+		</i2>
+    	<i2>
+    		<section>这个工具用C#编写，并没有使用像KAF，ECHO等微软提供的自动化测试类库，只是使用了mshtml接口（访问动态HTML(DHTML)对象模型的所有接口）中提供的一些基本方法，只要在安装了.net framework的机器上都可以使用。我们可以在下班前选上一些字符串让它运行，第二天早上来到公司就可以直接从截图中获取结果；同时tester也可以方便的从这上面获得测试textbox常用的字符串，可以当作提示tester的备忘录，毕竟一个人在进行测试的时候总会有些遗漏。</section>
+		</i2>
+    	<i2>
+    		<section>限于篇幅，肯定不能把程序所有功能、详细使用说明及代码原理一一叙述。如果大家对这个工具感兴趣，欢迎大家和我联系。由于本人水平有限，经验尚浅，这也是我第一次做自动化测试的工具，设计肯定还有不合理之处，程序本身也可能有问题，恳请大家批评指正，多提意见。</section>
+		</i2>
+
+    </article> 
+    <topic>
+    	<id>3</id>
+    	<name>特写(Feature)</name>
+    </topic>
+  </m>
+</b>
+

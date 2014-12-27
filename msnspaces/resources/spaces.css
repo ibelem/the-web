@@ -1,0 +1,145 @@
+body, div,span,p,td,th,input,select,textarea,button,h1,h2,h3,h4,h5,h6{margin:0;padding:0;font-family:Tahoma,Helvetica,Sans-Serif;}
+.cellstyle, .whiteBody{padding:8px;}
+td.ZigZagSpanFirst, td.TopToBottom {padding:8px}
+table, td, .pm0{margin:0px;padding:0px;}
+td, th{font-size:71%}
+a{text-decoration:none}
+a:hover {text-decoration:underline}
+h1            {font-size:180%;margin:0 0 18 0}
+h2            {font-size:160%;font-weight:bold;margin:16 0 0 0;}
+h3            {font-size:100%;font-weight:bold;margin:16 0 0 0}
+h4            {font-size:75%;font-weight:normal;margin:8 0 0 0}
+h5          {font-size:70%;font-weight:normal;margin:3 0 0 0}
+p            {margin:6 0 0 0}
+.backtotop        {font-size:110%;margin-top:15;margin-bottom:30}
+.backtotop a    {padding-left:10}
+.helptitle         {font-size:160%;font-weight:bold;}
+.xsmallFont{font-size:71%;}
+.smallFont{font-size:80%;}
+.helpNormal {text-decoration: none; cursor: hand;}
+.helpHover {text-decoration: underline; cursor: hand;}
+
+/* MSN Sharkfin styles begin */
+.sfl {padding-bottom:1px; font-size:24px; /*font for "Blog" next to the MSN logo in the header*/ white-space:nowrap}
+.sfl a, .sfi a{text-decoration:none;}
+.sfr {font-size:1px; /*don't localize.  a nbsp only*/}
+.sfi{padding:0px 0px 5px 0px; font-size:71%; /*the text in the header: "Help | FAQ"*/}
+.sfi a{padding: 0 11;}
+/* MSN Sharkfin styles end */
+/*Spaces Header*/
+.shdr table{padding:2 0;}
+.slogo{padding-left:10px;padding-right:6px;vertical-align:top}
+.stitle{font:bold 100% tahoma;padding-top:3px;}
+.slinks,.shelp{padding-top:7px;}
+.shelp{font-weight:bold;}
+.pplogo{padding:4px 10px 0 10px;}
+#AdsSecction{height:31px}
+/* MSN Header/Footer styles begin */
+.big7, .big7 a{font:100% tahoma}
+.nsb7, .nsla,.nsb7l, .nsch, .nsc, .nscl, .nsfl, .nss, .nsft, .nssg, .nsf, .nsft, .search{text-decoration:none;}
+.fhelp a {font-weight:normal}
+.adbar{margin-bottom:5px}
+
+/* MSN Header/Footer Styles end */
+/* Navigation */
+.mainnav, .mainnav a, .mainnav a:hover, .mainnav a:visited, .previewnav{font:bold 100% tahoma;text-decoration:none;}
+.secondarynav, .secondarynav a, .secondarynav a:hover,.seoncarynav a:visited{font:100% tahoma;text-decoration:none;}
+.preview, .preview a, .preview a:hover, .preview a:visited{font-size:83%;padding-bottom:4px;vertical-align:bottom;font-weight:normal;}
+.maindiv{padding-bottom:2px;}
+.mainsel, .seltab, .mainseltab, .mainseltab2, .secondarysel, .secondaryseltab, .previewnav{padding:0 8 0 8;}
+.mainseltab, .mainseltab2{padding-bottom:2px;}
+.secondarysel, .secondaryseltab{height:18;vertical-align:bottom;padding-bottom:3px;}
+.previewnav{font-size:70%;cursor:hand;}
+
+/*End Navigation*/
+
+/* Space Title and Tag Line*/
+.spaceTitle{font:normal 105% tahoma,arial;}
+.spaceTag{font:bold 70% tahoma;}
+.settingsHead{font:bold 80% tahoma;padding:5 10 5 10;}
+.bvTitle{font:bold 14px Tahoma,Verdana,Arial;}
+/* End Visitor View*/
+
+/*HomePage*/
+.hp{background-color:#ffffff;}
+.hp td, .hplink{color:#ffffff;}
+.hptopbg{font:110% Franklin Gothic Medium;background:url(../../editorial/default/images/head_back.gif);}
+.hporangetbl{background:url(../../editorial/default/images/main_top_back.gif);color:#ffffff;}
+.hplorangetbl{background-color:#ec6e20;}
+.htitle{font-size:130%;}
+.hporangehdr,.hpbluehdr{font-size:110%;font-weight:bold}
+.hpbluebg{background-color:#88b2cf;}
+.hpbbg{background:url(../../editorial/default/images/main_top_back.gif);}
+.hppartnersec{background-color:#ec6e20;font-weight:bold;font-size:80%;}
+.hpbluesection td, .hppartnertbl td{color:#000000;}
+.hpbullet li{color:#004377;}
+.fixedTable{table-layout:fixed}
+.ellipse{text-overflow:ellipsis;overflow:hidden;}
+
+/*ThemePreview*/
+.tpphoto, .tpcontentheading, .tpmyspace, .tpblogheading,.tptitle,.tpmoduleheader {font-weight:bold;}
+.tpcontentheading { font-size: 16px;}
+.tpblogheading,.tpblogcontent,.tpmoduleheader {font-size: 12px; }
+
+/*Button*/
+.midbutton {font-weight:bold;color:#ffffff;font-size:14px;}
+.midbuttonbg {background:url(../../editorial/default/images/but_str.gif);}
+.midbuttonbg a:hover{text-decoration:none}
+
+.bold, strong{font-weight:bold;}
+input.button{padding:0 4;}
+.gptop .bline{width:780px;}
+.gptop div{padding:3px 0 3px;}
+.sep, .graysep{font-size:11px;}
+.modhead{font-weight:bold;padding:2px 3px 2px 3px;}
+hr{height:1px;}
+.subnav tr td{padding:0 8px 0 8px;font-size:71%}
+.bluebox{font-size:140%}
+.beNormalTab,.beborderleft,.beSelectedTab,.bePreviewSelectedTab,.beBlogNormalTab{font-size:100%}
+.topline, .shdrbg, .shdrbgNoImg{width:779px;}
+.red {color: Red}
+
+/* Layout CSS */
+#layoutManager {width:778px;}
+spaces\:layout #LayoutManager {table-layout:fixed;}
+.OneCol #MainFocus {width:778px}
+.ClassicThreeCol #MainFocus {width:418px}
+.BackwardsTwoCol #MainFocus, .ClassicTwoCol #MainFocus {width:598px}
+.ZigZagSpanFirst spaces\:widget {width: 50%;display: inline;vertical-align: top;padding:0px 3px 8px}
+.ZigZagSpanFirst spaces\:widget.FullRegionWidth, .TopToBottom spaces\:widget {width: 100%;display:block;padding-bottom:8px}
+#SupplementalE, #SupplementalW {width: 180px}
+.SymmetricTwoCol #MainFocus, .SymmetricTwoCol #SupplementalE {width: 50%}
+input.editButtons {color: black;height: 20px; font-size: 11px}
+.partDetail {width:100%}
+
+/* Show allow list CSS */
+.AllowListBody { width:100%; height:350px; padding:0px; border-collapse: collapse; }
+.AllowListHeaderPanel { padding:10px 10px 10px 10px; background: #e0edf9; }
+.AllowListFooterPanel { padding:0px 10px 0px 0px; text-align: right; background: #e0edf9; }
+.Divider { background:#c4dcf2; }
+.AllowListContent { padding:10px 10px 10px 10px; }
+.AllowListBuddyList { width:240px; text-overflow:ellipsis; white-space:nowrap; overflow:auto;overflow-x:hidden;overflow-y:scroll;height:190px;border:solid 1px #4f8cb9; }
+.paddedALC { padding: 0px 10px; }
+
+/* CSS for popup */
+table#partPopup td {padding: 3px}
+div#popupContainer {font-size: 8pt;}
+
+.beRTEDL, #previewbox{font-size:100%;}
+.beBtn input {font-size:100%;padding:0 2 2 2;height:24;}
+.bold, a.entryttl{font-weight:bold}
+.searchtitle{font-weight:bold;padding-bottom:3px;}
+.bvTitle{font:bold 14px;}
+a.belink, a.belink:hover {text-decoration:none;font-weight:bold;cursor:hand;}
+.ElementFrame{border:0px none;width:100%;font-size: 100%;font-family: Verdana;}
+.ElementFrameD{border:0px none;width:100%;font-size: 145%;font-family: Verdana;height:100%;}
+.LayoutContainer{WIDTH: 100%; HEIGHT: 100;font-size: 135%;font-family: Verdana;}
+.LayoutContainer .ElementFrame{font-size:145%;}
+.Part {cursor:hand; font-weight:bold;}
+.SUHead{padding:2px; padding-left:10px; font-size:160%; color:#ffffff;}
+.SUWiz .step {width:20px; vertical-align: top; font: Bold 14pt Tahoma,Helvetica,Sans-Serif;color: #004377}
+.ImgTD{font-size:120%; background-repeat:no-repeat; color: white; padding:0 0 5 7;}
+.settingsHead{font-size:71%}
+.editBox{height:17px;font-family:Tahoma,Helvetica,Sans-Serif;font-size:11px;width:180px}
+.ErrorActionText { font-weight: bold; color: Red; }
+.NormalActionText { font-weight: bold; }

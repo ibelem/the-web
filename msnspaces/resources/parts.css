@@ -1,0 +1,151 @@
+.beTop, .searchsubnav tr td, .bvSectionTitle tr td, .bvSectionTitlePC tr td, .bvSectionContent tr td, .bvSectionContentY tr td, .bvSectionContentG tr td, .bvSectionContentPC tr td{padding:0 8 0 8}
+
+/*blogentry*/
+.text{padding:0 2 0 2;}
+.beRTE, .beRTEDL{width:558;height:272px;border: medium none;}
+.beRTEDL, #previewbox, #PE{border:1px solid black;padding:12 8 12 8;}
+.bePicRowTable{background-color:#f2f2f2;border:1px solid black;border-top:0px;}
+#previewbox{display:none;width:100%;height:272px;}
+#PE{width:100%;overflow:auto;height:272px;}
+#rtebox{display:block;}
+#tbinfo{display:none;}
+#beSecondSpacer{height:8px;}
+/*blogmgmt*/
+.bmDLComment{padding-left:50px;}
+.mb{width:600px;}
+.commentlist,.tblist, .commentlist_w,.tblist_w, .dlComments{display:none;}
+.entry td,.entryhdr td, .commententry td, .tbentry td{padding-right:6px;vertical-align:top}
+.nav tr td{padding:0;margin:0}
+.bl48width{width:48px;height:1px;}
+.blogtask div{padding-bottom:3px;}
+.blogerror{padding:9;}
+.bmwordwrap{overflow:hidden;word-wrap:break-word;width:260px;}
+.bmcategorywrap{overflow:hidden;word-wrap:break-word;width:90px;}
+.bmtitlewrap{overflow:hidden;word-wrap:break-word;width:200px;}
+/*blogsearch*/
+.searchinput{height:21px;padding:2px;}
+.searchradiotxt{position:relative;top:-2px;}
+/*blogsearchresults*/
+
+.nav tr td{padding:0;margin:0}
+#inputtext{padding:2;height:22px;}
+.searchresultbox {word-wrap:break-word;width:500px;left:0;}
+/*blogtask*/
+.blogtask {width:180px;}
+.blogtask div{padding:5 0 0 0;}
+/*blogview*/
+.bvTitle{word-wrap:break-word;}
+.bvSection{display:block;width:100%;margin-bottom:8px;}
+.bvSectionContent .line {height:1;}
+.bvError{width:100%;padding:2 0 2 0;}
+.bvSectionContentY{margin:0 3 0 3;width:98%}
+.bvPostCommentBtn tr td{padding:0;}
+.text{height:20px;padding:0 2 0 2;}
+.bvh8{height:8px;}
+.bvwordwrap{word-wrap:break-word;width:300px;left:0}
+/*myspace*/
+.mstitle td, .msrow td{padding:0 3 2 3;vertical-align:bottom;}
+.msbluerow td, .mswhiterow td{padding:2 3 2 3; vertical-align:top;}
+.mstitlewrap, .mstitlewrap2{overflow:hidden;word-wrap:break-word;}
+.mstitlewrap{width:150px;}
+.mstitlewrap2{width:100px;}
+
+/*blogentry*/
+.betab,.bluebottom, #tblStatus{width:602px}
+.bluebottom, #tblStatus{table-layout:fixed}
+.blueBox{margin:10px;}
+.betitle{padding-left:10px;padding-right:10px;padding-top:10px;margin-top:10px;margin-left:10px;margin-right:10px;}
+/*category*/
+.catlist{word-wrap:break-word;overflow:hidden;}
+/*settings,signup,userprofile*/
+.LayoutMainElement{text-align:center;cursor:hand;width:100%;}
+.LayoutMainElementD{text-align:center;height:60;width:100%;}
+.LayoutMainColumnD, .LayoutMainColumn{text-align: left; vertical-align: top;}
+.LayoutWellElement{text-align:center;cursor:hand;}
+.LayoutIBeam{display:none;border-collapse: collapse;table-layout:fixed;height:20px;width:50px;position:absolute;}
+.LayoutIBeamTR{height: 5px;}
+.LayoutWell{text-align: left; vertical-align: top;}
+.MPEdit {padding:5 8 4 8;}
+.MPEdita {text-decoration:none;}
+.MPEdita:hover{text-decoration:underline;}
+.MPHead, .MPDesc {padding:4 6 0 0; vertical-align:top}
+.MPHead {vertical-align:top}
+.MPInfo, .MPQuot {padding:8px;}
+.SULayoutArea{margin-bottom:4px; margin-top:5px;}
+SPAN.SULayoutArea {width:100%}
+.SUWiz{width:515px}
+.SUWizContent{display:block; padding:5px 10px 5px 20px;}
+.SUExample{border-bottom:0px;}
+.SUExample TD{padding:6px;}
+.SULeftNav{background-color:#A1C3DF; color:#396E9C; width:131px;}
+.SUContentPane{background-color:#ffffff; vertical-align:top; padding:20px;}
+.SUSugs{margin-top:4px; margin-left:20px}
+.SUStep{padding-right:5px; color:#ffffff;}
+.SUWizPg{background-color:#ffffff; border:1px solid #79B0CB; padding:10px 0px 0px 0px;}
+.SUWiz .SUDetail {padding: 5px;}
+.SUWiz HR {color: #79B0CB}
+.SUWiz UL {padding-bottom: 0pt}
+.SUToDo {padding-left:20px;padding-bottom:8px;padding-top:8px;background:#EEF4F9}
+.SUIndent{margin:10px 10px 10px 30px;}
+.SUMain{border-top:0px;}
+.SUSpaceTitle{border: #79b0cb 1px solid; vertical-align: middle; width: 420px;}
+.SUMemberUrl{vertical-align: middle;}
+.SUWizardPanel{PADDING-RIGHT: 10px; PADDING-LEFT: 10px; MARGIN-LEFT: 1px; MARGIN-RIGHT: 1px; BACKGROUND-COLOR: #ffffff}
+.SUPanel2{PADDING-RIGHT:0px;PADDING-LEFT:0px;PADDING-BOTTOM:2px;PADDING-TOP:0px;MARGIN-LEFT:1px;MARGIN-RIGHT:1px;BACKGROUND-COLOR:#ffffff}
+.SUSpaceAlias{border: #79b0cb 1px solid; vertical-align: middle; width: 150px;}
+.SUMessageText{padding-left: 10px;}
+.SUPermImage{vertical-align:top;padding-right:0.5em;padding-left:25px;}
+.SUPermText{padding-right: 5px;}
+
+.txtURL{width:150px; margin-right:10px;}
+.SSDs{padding:5 5 0 0;}
+.SaveRow{text-align:right; padding:6px}
+.BSCategory{word-wrap:break-word;width:135px;padding:0 5 0 5;}
+.StatsRef{word-wrap:break-word;width:240;}
+.pad8{padding:8px}
+.listcell{text-overflow:ellipsis;overflow:hidden;padding:3px 0px 3px 3px;}
+.editCell{padding-top:1px}
+
+.fixedHeight{height:25px;padding-top:0px;padding-bottom:0px;}
+.ProfileQuote{text-align:left;padding:6px;}
+
+/* Customize Layout */
+#dlEditor .SetupOneCol SELECT {width:500px}
+#dlEditor .SetupClassicThreeCol SELECT, .SetupClassicThreeCol SELECT, .SetupClassicThreeCol SELECT {width: 167px}
+#dlEditor .SetupBackwardsTwoCol SELECT {width: 250px}
+#dlEditor .SetupClassicTwoCol SELECT {width: 250px}
+#dlEditor .SetupSymmetricTwoCol SELECT, .SetupSymmetricTwoCol SELECT {width: 250px}
+
+/*theme settings*/
+.themesettingsbox{margin:12 20;overflow:auto;height:400px;}
+.themesettingsbox td{padding-top:10px;padding-bottom:10px}
+.themeimg{cursor:hand;}
+
+/* Permission settings page */
+.fixedTable {table-layout:fixed; }
+.abTitle { padding:5px 0px 5px 0px; width:379px;} 
+.abTitlePR { padding-left: 10px; }
+.abHeader { width: 379px;}
+.abTable { width: 100%; table-layout:fixed; overflow:hidden; border:0px; }
+.abTopRow { height: 25px; }
+.abContents { width:379px;overflow:auto;overflow-x:hidden;overflow-y:scroll;height:270px;}
+.colCbox { text-align:center; padding: 3px; width: 20px; }
+.colNameH { padding-left: 3px; width: 100px; }
+.colQNameH { padding-left: 3px; width: 80px; }
+.colMSNAdrH { padding-left: 3px; width: 100px; }
+.colName { overflow:hidden; padding: 3px 3px 3px 3px; width: 100px; }
+.colQName { overflow:hidden; padding: 3px 3px 3px 10px; width: 80px; }
+.colMSNAdr { overflow:hidden; padding: 3px 3x 3px 12px; width: 100px; }
+.colDiv { width: 4px; }
+.AddressBookMessage { width:379px; text-align:center; }
+.DeletedContactColor { color: Red; }
+
+/*mini blog control*/
+.miniblogrow{width:140px;padding:5px 0px;overflow:hidden;text-overflow:ellipsis;}
+
+/* music part */
+.padleft {padding-left:3px;}
+.importTable {height:350px;width:100%;overflow-y:auto;display:block; border-style:solid;border-width:1px}
+
+/*blogsettings*/
+.categoryBox{overflow:auto; width:200px; height:125px}

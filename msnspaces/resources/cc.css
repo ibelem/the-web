@@ -1,0 +1,84 @@
+.ContactCard DIV.Title
+{
+    font-weight: bold;
+    font-size: 8pt;
+    padding-left: 0px;
+    width: 296px;
+}
+.ContactCard SPAN.ContentHeading
+{
+    font-size: 10pt;
+    font-weight: bold;
+}
+.ContactCard SPAN.MySpace
+{
+    font-size: 8pt;
+    font-weight: bold;
+    color: #1541A2;
+}
+.ContactCard SPAN.myRight
+{
+    float: right;
+    text-align: right;
+    background-color: red;
+    padding-right: 8px;
+}
+.ContactCard SPAN.myLeft
+{
+    float: left;
+    text-align: left;
+    width: 19px;
+    background-color: yellow;
+    padding: 3px 8px;
+}
+.ContactCard TABLE
+{
+    margin: 0em 0em 0em 0em;
+    font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 8pt;
+}
+body.ContactCard
+{
+    margin: 0em 0em 0em 0em;
+    font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 8pt; 
+    background-color: #FFFFFF  
+}
+.ContactCard A
+{
+    color: #616060;
+    font-size: 8pt;
+}
+.ContactCard SPAN.AlbumCaption
+{
+    font-size: 8pt;
+    color: #616060;
+}
+.ContactCard SPAN.ModuleHeader
+{
+    color: #616060;
+}
+.ContactCard SPAN.BlogHeading
+{
+    font-weight: bold;
+    font-size: 8pt;
+    white-space:nowrap;
+}
+.ContactCard SPAN.BlogContent
+{
+    font-size: 8pt;
+    color: #000000;
+    white-space:nowrap;
+}
+.ContactCard SPAN.MusicHeading
+{
+    font-weight: bold;
+    font-size: 8pt;
+    white-space:nowrap;
+}
+.ContactCard SPAN.MusicContent
+{
+    font-size: 8pt;
+    color: #000000;
+    white-space:nowrap;
+}

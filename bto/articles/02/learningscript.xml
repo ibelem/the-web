@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="../../xsl/200807Learn.xsl" ?>
+<b>
+  <e>博彦培训月刊</e>
+  <l>第二期</l>
+  <e2> 2008.07.10</e2>
+  <m>
+    <title>基于COM的Web 程序UI测试</title>
+    <author>
+    	<name>李云峰</name>
+    	<intro>原 Spaces Core Team 成员, 现 MSN toolbar 项目组 SDET. 勤奋好学, 不断进取, 待人真诚. </intro>
+    	<email>v-yunfli@microsoft.com</email>
+		<other>MSN: yunfeng_li@live.com</other>
+		<img>lyf.jpg</img>
+    </author>
+    <article>
+ 		<i>
+ 			<section>上次，大家一起学习了用windows API 做Win32程序的基本测试，这次我们来讨论一下Web程序的测试方法。很多时候我们对Web程序的测试都是通过IE来访问要测试的程序，所以我们要做自动化测试肯定是要从IE入手。首先要解决的是如何操作IE的问题，然后再解决如何操作Web页面的元素。我们先来看一张IE的结构图。</section>
+ 		</i>
+ 		<gif>
+ 			<section>learn/200807a.gif</section>
+ 		</gif>
+ 		<i2>
+ 			<section>从图中我们可以看到在IE的组成中有ShDocVw.dll和MSHTML.dll两个组件。一个是IE control，一个是HTML定义。所以我们在工程中要调用这两个组件来完成我们的测试。</section>
+ 		</i2>
+ 		<i2>
+ 			<section>在VS2008的Reference的COM组件中，有Microsoft Internet Controls和Microsoft HTML Object Library，这两个的组件分别对应的就是ShDocVw.dll和MSHTML.dll，我们在工程中添加这两个引用。</section>
+ 		</i2>
+ 		<i2>
+ 			<section>前置知识：</section>
+ 		</i2>
+ 		<i2>
+ 			<section>COM，就是微软在.Net之前为了解决Dll Hell而提出的在windows下编程的通用解决方案,在COM构架下，人们可以开发出各种各样的功能专一的组件，然后将它们按照需要组合起来，构成复杂的应用系统。由此带来的好处是多方面的：可以将系统中的组件用新的替换掉，以便随时进行系统的升级和定制；可以在多个应用系统中重复利用同一个组件；可以方便的将应用系统扩展到网络环境下。COM与语言、平台无关。</section>
+ 		</i2>
+ 		<i2>
+ 			<section>待测程序： Windows Live Spaces 登陆页面</section>
+ 		</i2>
+ 		<i2>
+ 			<section>http://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=10&amp;ct=1211781116&amp;rver=5.5.4158.0&amp;wp=MBI&amp;wreply=http:%2F%2Fspaces.live.com%2F&amp;lc=1033&amp;id=73625</section>
+ 		</i2>
+ 		<i2>
+ 			<section>测试设计：</section>
+ 		</i2>
+ 		<i2>
+ 			<section>新建一个ConsoleApplication，写入下面的代码，其功能是：运行IE并转到Windows Live Spaces 登陆页面。设置IE左上角坐标（10.10），高度和宽度为600，1000。尝试点击Sign_in_with_a_different_account链接。给passPort和passWord赋值。点击sign 按钮。退出IE。</section>
+ 		</i2>
+ 		<i2>
+ 			<section>代码评注：</section>
+ 		</i2>
+ 		<i2>
+ 			<section>在我们的代码中，首先先实例化一个IE的类myIE，这个类就代表了我们要操作的IE，以后我们对myIE的操作都会反映到与这个类相对应的IE上去。</section>
+ 		</i2>
+ 		<i2>
+ 			<section>然后我们注册了一个DWebBrowserEvents2委托，这个委托会在IE加载一个页面完成之后自动调用。我们在测试Web程序的时候经常遇到的问题就是每次IE加载目标程序的时间不一定，这样的话我们不得不频繁调用Sleep（）函数，并且如果网络情况不好的话，很可能Sleep（）函数已经执行完毕，但是IE还没有加载完成，从而造成了Case的失败。大家可以从这个例子中看出如何智能地使用调用DWebBrowserEvents2委托来实现IE加载完成判断的。</section>
+ 		</i2>
+ 		<i2>
+ 			<section>最后我们定义了几个Web页面的元素，并对他们进行了操作。
+初学者可能会对每个元素的类型感到迷惑，不清楚button是什么类型，link是什么类型，其实我们可以用一些小技巧来得到这些元素的类型。通过下面的这两行代码，我们可以容易地得到Sign_in_with_a_different_account这个link的类型。
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>object  Sign_in_with_a_different_account = (object)myIEDoc.getElementById("i1668");
+Console.WriteLine(Sign_in_with_a_different_account.ToString());
+</section>
+ 		</i2>
+ 		<i2>
+ 			<section>以上代码在XP_SP2EN+IE6+VS2008+.NET Framework 3.5环境下调试通过。由于本人也是初学者，只看到了自动化测试的一些皮毛，文中难免有疏漏错误之处，恳请大家批评指正。</section>
+ 		</i2>
+ 		<i3>
+ 			<section>COM_Test.zip</section>
+ 		</i3>
+
+ 
+     </article> 
+    <topic>
+    	<id>6</id>
+    	<name>学习手记(Learning Script)</name>
+    </topic>
+  </m>
+</b>
+

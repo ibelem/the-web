@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="../../xsl/200807.xsl" ?>
+<b>
+  <e>博彦培训月刊</e>
+  <l>第二期</l>
+  <e2> 2008.07.10</e2>
+  <m>
+    <title>MSTG 六月培训回顾</title>
+    <author>
+    	<name>Ida</name>
+    	<intro>博彦培训编辑部主任, 首席记者. 负责编辑部各个环节的组织和综合工作, 包括联络工作, 对采访对象进行采编工作等, 特写 (Feature) 责编. </intro>
+    	<email>zhanghongbo@beyondsoft.com / v-honzha@microsoft.com</email>
+		<other>MSN: idazhang@live.cn </other>
+		<img>ida.jpg</img>
+    </author>
+    <article>
+    	<gif> 
+    		<section>monthly/200806.gif</section>
+    	</gif>
+ 
+    </article> 
+    <topic>
+    	<id>2</id>
+    	<name>月培训总揽(Monthly Overview)</name>
+    </topic>
+  </m>
+</b>
+

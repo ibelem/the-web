@@ -1,0 +1,33 @@
+﻿/* 
+
+	TableCloth	
+	by Alen Grakalic, brought to you by cssglobe.com
+	
+*/
+
+/* general styles */
+
+#review table, td{
+	font-size: 90%;
+}
+#review table{width:100%; margin:1em 0; border:1px solid #cea;}
+#review th {text-align:right;padding:2px 10px;border:1px solid #fff; font-size:105%; font-weight:normal; font-style:italic; }
+#review td {text-align:left;padding:2px 10px;border:0px dotted #fff; }
+ 
+#review td{background:#e5f1f4;}
+
+/* tablecloth styles */
+
+#review tr.even td{background:#e5f1f4;}
+#review tr.odd td{background:#f8fbfc;}
+
+#review th.over, tr.even th.over, tr.odd th.over{background:#4a98af;}
+#review th.down, tr.even th.down, tr.odd th.down{background:#bce774;}
+#review th.selected, tr.even th.selected, tr.odd th.selected{}
+
+#review td.over, tr.even td.over, tr.odd td.over{background:#ecfbd4;}
+#review td.down, tr.even td.down, tr.odd td.down{background:#bce774;color:#fff;}
+#review td.selected, tr.even td.selected, tr.odd td.selected{background:#bce774;color:#555;}
+
+/* use this if you want to apply different styleing to empty table cells*/
+#review td.empty, tr.odd td.empty, tr.even td.empty{background:#fff;}
